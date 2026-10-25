@@ -1,0 +1,315 @@
+PSX Mansion Kit
+
+Documentation
+
+Every prop is a prefab in Assets/PSXMansionKit/Prefabs/ (PF_<prop>): drag it into a scene. 1 unit = 1 m; a prop's pivot
+is on the floor (or, for a wall prop, on the wall) it rests against. Each part has a box collider.
+
+Look
+Every prefab uses Materials/, which use the shader PSXMansionKit/PSX Unlit: the texture times the baked
+vertex shading, unlit, with the PS1's vertex snap (Vertex Snap: rows on screen, 0 = off) and Unity's fog.
+Affine Texture Warp (0 as shipped, up to 1) gives the PS1's swimming textures, most on big faces seen close.
+Render pipelines: Built-in and URP: the materials use the pack's one-pass unlit shader (vertex snap, fog, and an affine texture warp to turn on), which both render. Not HDRP.
+
+Animations
+A prop with moving parts has an Animation component with its clips; nothing plays on its own:
+    GetComponent<Animation>().Play("open");
+Demo/L_Demo.unity circles the props and plays every animation in turn (Scripts/PropsDemo.cs).
+Left/right selects a prop, A shows the catalog, drag orbits, right-drag pans, the wheel zooms,
+Space toggles auto orbit, R resets the view. Animations keep playing in either view.
+Demo/L_Level.unity is a level of 764 of them to walk (Scripts/LevelWalker.cs): WASD or the
+arrows and the mouse, Shift runs, E uses what is in front of you, Esc frees the mouse.
+
+Machines
+A prop that works (its kind is in the list below) has Scripts/Machine.cs on its prefab, set up in the
+inspector: its kind (what a use does: Switch, Button, Turn, Slot, Keypad, Panel, Item, Powered, Gauge),
+the machines it needs to be powered, and UnityEvents for what it does (onSwitched, onLive, onRefused,
+onUsed, onKeyed, onPicked). Machine.cs's comments say what each kind does.
+    lever.Use(carried);                     // the player's use; carried: the items they hold
+    keypad.Use(carried, "keypad_key_4");    // a key: the part they point at
+    door.needs = new[] { lever };           // the door is powered while the lever is on
+
+Textures: T_ashlar_Albedo.png 128x128, T_atlas_Albedo.png 2048x2048, T_boards_dark_Albedo.png 128x128, T_boards_rotten_Albedo.png 128x128, T_carpet_crimson_Albedo.png 128x128, T_ceiling_coffered_Albedo.png 128x128, T_ceiling_joists_Albedo.png 128x128, T_ceiling_plaster_Albedo.png 128x128, T_ceiling_plaster_stained_Albedo.png 128x128, T_cellar_damp_Albedo.png 128x128, T_cellar_stone_Albedo.png 128x128, T_damask_Albedo.png 128x128, T_damask_bloody_Albedo.png 128x128, T_damask_frieze_Albedo.png 128x128, T_damask_torn_Albedo.png 128x128, T_flagstone_Albedo.png 128x128, T_hall_cornice_Albedo.png 128x128, T_hall_plinth_Albedo.png 128x128, T_hall_stone_Albedo.png 128x128, T_limewash_Albedo.png 128x128, T_limewash_dado_Albedo.png 128x128, T_marble_bloody_Albedo.png 128x128, T_marble_checker_Albedo.png 128x128, T_panel_oak_Albedo.png 128x128, T_panel_oak_base_Albedo.png 128x128, T_panel_oak_frieze_Albedo.png 128x128, T_parquet_oak_Albedo.png 128x128, T_plaster_cracked_Albedo.png 128x128, T_quarry_red_Albedo.png 128x128, T_stripe_frieze_Albedo.png 128x128, T_stripe_green_Albedo.png 128x128, T_stripe_stained_Albedo.png 128x128, T_subway_cap_Albedo.png 128x128, T_subway_white_Albedo.png 128x128, T_tiles_bath_Albedo.png 128x128, T_wainscot_oak_Albedo.png 128x128, point filtered, no mipmaps.
+Icons/: an inventory icon per prop, T_<prop>, imported as a UI sprite.
+
+Props (triangles, size in metres: width x height x depth, animations)
+- floor_marble: Marble Floor, 8 tris, 2 x 0 x 2
+- floor_marble_bloody: Bloody Marble Floor, 8 tris, 2 x 0 x 2
+- floor_parquet: Parquet Floor, 8 tris, 2 x 0 x 2
+- floor_boards: Floorboards, 8 tris, 2 x 0 x 2
+- floor_boards_rotten: Rotten Floorboards, 8 tris, 2 x 0 x 2
+- floor_carpet: Crimson Carpet Floor, 8 tris, 2 x 0 x 2
+- floor_flagstone: Flagstone Floor, 8 tris, 2 x 0 x 2
+- floor_quarry: Quarry Tile Floor, 8 tris, 2 x 0 x 2
+- floor_tiles_bath: Hex Tile Floor, 8 tris, 2 x 0 x 2
+- ceiling_plaster: Plaster Ceiling, 8 tris, 2 x 0 x 2
+- ceiling_plaster_stained: Stained Plaster Ceiling, 8 tris, 2 x 0 x 2
+- ceiling_coffered: Coffered Ceiling, 8 tris, 2 x 0 x 2
+- ceiling_joists: Joist Ceiling, 8 tris, 2 x 0 x 2
+- wall_damask: Damask Wall, 28 tris, 2 x 3 x 0.2
+- wall_damask_torn: Torn Damask Wall, 28 tris, 2 x 3 x 0.2
+- wall_damask_bloody: Bloody Damask Wall, 28 tris, 2 x 3 x 0.2
+- wall_damask_outer: Outside Damask Wall, 28 tris, 2 x 3 x 0.2
+- wall_doorway_damask: Damask Doorway, 56 tris, 2 x 3 x 0.2
+- wall_doorway_damask_double: Damask Double Doorway, 56 tris, 2 x 3 x 0.2
+- wall_window_damask: Damask Window Wall, 68 tris, 2 x 3 x 0.2
+- wall_half_damask: Half Damask Wall, 14 tris, 1 x 3 x 0.2
+- wall_striped: Striped Wall, 28 tris, 2 x 3 x 0.2
+- wall_striped_stained: Stained Striped Wall, 28 tris, 2 x 3 x 0.2
+- wall_striped_outer: Outside Striped Wall, 28 tris, 2 x 3 x 0.2
+- wall_doorway_striped: Striped Doorway, 56 tris, 2 x 3 x 0.2
+- wall_window_striped: Striped Window Wall, 68 tris, 2 x 3 x 0.2
+- wall_panelled: Panelled Wall, 28 tris, 2 x 3 x 0.2
+- wall_panelled_inner: Inner Panelled Wall, 28 tris, 2 x 3 x 0.2
+- wall_panelled_outer: Outside Panelled Wall, 28 tris, 2 x 3 x 0.2
+- wall_doorway_panelled: Panelled Doorway, 56 tris, 2 x 3 x 0.2
+- wall_window_panelled: Panelled Window Wall, 68 tris, 2 x 3 x 0.2
+- wall_hall: Hall Wall, 28 tris, 2 x 3 x 0.2
+- wall_hall_outer: Outside Hall Wall, 28 tris, 2 x 3 x 0.2
+- wall_hall_upper: Upper Hall Wall, 28 tris, 2 x 3 x 0.2
+- wall_hall_upper_outer: Outside Upper Hall Wall, 28 tris, 2 x 3 x 0.2
+- wall_doorway_hall: Hall Doorway, 56 tris, 2 x 3 x 0.2
+- wall_doorway_hall_double: Hall Double Doorway, 56 tris, 2 x 3 x 0.2
+- wall_doorway_front: Front Doorway, 56 tris, 2 x 3 x 0.2
+- wall_window_hall: Hall Window Wall, 68 tris, 2 x 3 x 0.2
+- wall_window_hall_upper: Upper Hall Window Wall, 68 tris, 2 x 3 x 0.2
+- wall_half_hall: Half Hall Wall, 14 tris, 1 x 3 x 0.2
+- wall_cellar: Cellar Wall, 28 tris, 2 x 3 x 0.2
+- wall_doorway_cellar: Cellar Doorway, 56 tris, 2 x 3 x 0.2
+- wall_arch_cellar: Cellar Arch, 88 tris, 2 x 3 x 0.2
+- wall_tiled: Tiled Wall, 28 tris, 2 x 3 x 0.2
+- wall_tiled_outer: Outside Tiled Wall, 28 tris, 2 x 3 x 0.2
+- wall_doorway_tiled: Tiled Doorway, 56 tris, 2 x 3 x 0.2
+- wall_window_tiled: Tiled Window Wall, 68 tris, 2 x 3 x 0.2
+- wall_tiled_striped: Tiled Wall, Striped Behind, 28 tris, 2 x 3 x 0.2
+- wall_doorway_tiled_damask: Tiled Doorway, Damask Behind, 56 tris, 2 x 3 x 0.2
+- wall_service: Service Wall, 28 tris, 2 x 3 x 0.2
+- wall_service_outer: Outside Service Wall, 28 tris, 2 x 3 x 0.2
+- wall_service_damask: Service Wall, Damask Behind, 28 tris, 2 x 3 x 0.2
+- wall_doorway_service: Service Doorway, 56 tris, 2 x 3 x 0.2
+- wall_window_service: Service Window Wall, 68 tris, 2 x 3 x 0.2
+- wall_post_damask: Damask Post, 26 tris, 0.2 x 3 x 0.2
+- wall_post_striped: Striped Post, 26 tris, 0.2 x 3 x 0.2
+- wall_post_panelled: Panelled Post, 26 tris, 0.2 x 3 x 0.2
+- wall_post_hall: Hall Post, 26 tris, 0.2 x 3 x 0.2
+- wall_post_hall_upper: Upper Hall Post, 26 tris, 0.2 x 3 x 0.2
+- wall_post_cellar: Cellar Post, 26 tris, 0.2 x 3 x 0.2
+- wall_post_tiled: Tiled Post, 26 tris, 0.2 x 3 x 0.2
+- wall_post_service: Service Post, 26 tris, 0.2 x 3 x 0.2
+- wall_post_ashlar: Ashlar Post, 26 tris, 0.2 x 3 x 0.2
+- stairs_grand: Grand Staircase, 4512 tris, 4 x 4.23 x 6.01
+- stairs_cellar: Cellar Stairs, 328 tris, 2 x 3.917 x 6
+- banister_oak: Oak Banister, 952 tris, 2 x 0.975 x 0.1
+- door_panel: Panelled Door, 224 tris, 1.14 x 2.27 x 0.24, open
+- door_panel_locked: Locked Panelled Door, 224 tris, 1.14 x 2.27 x 0.24, rattle
+- door_baize: Baize Door, 48 tris, 1.14 x 2.27 x 0.24, open
+- door_double: Double Doors, 412 tris, 1.74 x 2.47 x 0.24, open
+- door_front: Front Doors, 244 tris, 1.74 x 2.47 x 0.24, rattle
+- door_shield: Shield Door, 256 tris, 1.14 x 2.27 x 0.24, open; a machine, switch
+- door_crest: Crest Door, 132 tris, 1.14 x 2.27 x 0.24, open; a machine, switch
+- door_cellar: Cellar Door, 88 tris, 1.14 x 2.27 x 0.24, open
+- bookcase_secret: Secret Bookcase, 172 tris, 1.3 x 2.5 x 0.62, open; a machine, powered
+- window_tall: Tall Window, 224 tris, 1.16 x 1.915 x 0.3, open
+- window_hall: Hall Window, 224 tris, 1.36 x 1.915 x 0.3, open
+- window_upper: Upper Hall Window, 224 tris, 1.36 x 1.915 x 0.3, open
+- window_shutters: Shuttered Window, 184 tris, 1.16 x 1.915 x 0.3, open
+- window_boarded: Boarded Window, 196 tris, 1.263 x 1.952 x 0.3
+- curtains: Velvet Curtains, 100 tris, 1.75 x 2.685 x 0.095, stir
+- chandelier_grand: Grand Chandelier, 2180 tris, 1.31 x 1.9 x 1.264, sway
+- suit_of_armour: Suit of Armour, 724 tris, 0.72 x 2.56 x 0.5, watch
+- bust: Marble Bust, 352 tris, 0.44 x 1.875 x 0.4
+- urn: Marble Urn, 276 tris, 0.501 x 1.54 x 0.4
+- fireplace: Fireplace, 314 tris, 1.9 x 1.4 x 0.9, burn
+- fireplace_cold: Cold Fireplace, 230 tris, 1.9 x 1.4 x 0.9
+- sconce_candle: Candle Sconce, 164 tris, 0.34 x 0.29 x 0.146
+- candelabrum: Standing Candelabrum, 468 tris, 0.52 x 1.675 x 0.492
+- deer_head: Stag's Head, 242 tris, 0.63 x 0.852 x 0.495
+- rug_hall: Hall Rug, 12 tris, 3 x 0.01 x 4
+- rug_runner: Runner, 12 tris, 0.9 x 0.01 x 2
+- portrait_master: Portrait of the Master, 50 tris, 1.06 x 1.36 x 0.06
+- portrait_lady: Portrait of the Lady, 50 tris, 0.86 x 1.11 x 0.06
+- portrait_children: Portrait of the Children, 50 tris, 1.06 x 0.86 x 0.06
+- portrait_slashed: Slashed Portrait, 50 tris, 0.86 x 1.11 x 0.06
+- painting_stag: Painting of a Stag, 50 tris, 1.36 x 0.96 x 0.06
+- painting_storm: Painting of a Storm, 50 tris, 1.16 x 0.86 x 0.06
+- painting_house: Painting of the House, 50 tris, 0.96 x 0.76 x 0.06
+- table_dining: Dining Table, 592 tris, 3 x 0.764 x 1.1
+- chair_dining: Dining Chair, 300 tris, 0.5 x 1.3 x 0.466
+- chair_dining_toppled: Toppled Dining Chair, 300 tris, 0.5 x 0.466 x 1.3
+- candelabrum_table: Table Candelabrum, 328 tris, 0.35 x 0.505 x 0.18
+- place_setting: Place Setting, 274 tris, 0.477 x 0.18 x 0.38
+- platter_cloche: Covered Platter, 220 tris, 0.52 x 0.27 x 0.52, open
+- china_cabinet: China Cabinet, 576 tris, 1.26 x 2.1 x 0.49, open
+- bookcase_library: Library Bookcase, 160 tris, 1.26 x 2.5 x 0.44
+- bookcase_ruined: Ransacked Bookcase, 246 tris, 1.26 x 2.5 x 1.07
+- ladder_library: Library Ladder, 192 tris, 2.43 x 2.372 x 0.58, slide
+- piano_grand: Grand Piano, 870 tris, 1.513 x 1.921 x 2.2, piano_key_c, piano_key_d, piano_key_e, piano_key_f, piano_key_g, piano_key_a, piano_key_b; a machine, keypad
+- piano_bench: Piano Bench, 188 tris, 0.8 x 0.51 x 0.36
+- lectern: Lectern, 102 tris, 0.5 x 1.164 x 0.433
+- desk_writing: Writing Desk, 158 tris, 1.4 x 0.961 x 0.72, open
+- display_case: Display Case, 108 tris, 1 x 0.93 x 0.55
+- pedestal: Pedestal, 92 tris, 0.4 x 1.04 x 0.4
+- bed_four_poster: Four-Poster Bed, 598 tris, 1.78 x 2.3 x 2.173
+- bed_child: Child's Bed, 376 tris, 0.97 x 1.04 x 1.761
+- cradle: Cradle, 220 tris, 0.651 x 0.788 x 0.98, rock
+- music_box: Music Box, 110 tris, 0.22 x 0.115 x 0.15, open, play
+- wash_stand: Wash Stand, 262 tris, 0.8 x 1.1 x 0.45
+- screen_folding: Dressing Screen, 108 tris, 1.506 x 1.76 x 0.238
+- wine_rack: Wine Rack, 222 tris, 1.24 x 2.2 x 0.4
+- wine_rack_broken: Broken Wine Rack, 406 tris, 1.24 x 2.2 x 1
+- barrel: Barrel, 176 tris, 0.678 x 0.85 x 0.645
+- barrel_rack: Barrel Rack, 648 tris, 2.1 x 0.722 x 0.96
+- shelf_jars: Shelf of Jars, 1104 tris, 1.2 x 1.815 x 0.35
+- chains_wall: Wall Chains, 1684 tris, 0.796 x 0.981 x 0.088
+- coffin: Coffin, 500 tris, 0.7 x 1.088 x 2, open
+- range_iron: Kitchen Range, 244 tris, 1.8 x 3 x 0.722, open
+- sink_butler: Butler's Sink, 244 tris, 1.379 x 1.5 x 0.501
+- bell_board: Servants' Bell Board, 1050 tris, 1.38 x 0.49 x 0.165, ring
+- dumbwaiter: Dumbwaiter, 108 tris, 0.86 x 1.76 x 0.42, open
+- pan_rack: Copper Pan Rack, 626 tris, 1.53 x 0.524 x 0.12
+- meat_safe: Meat Safe, 358 tris, 0.64 x 1.38 x 0.525, open
+- billiard_table: Billiard Table, 1220 tris, 2.8 x 0.878 x 1.6
+- cue_rack: Cue Rack, 148 tris, 1.4 x 1.43 x 0.11
+- billiard_lamp: Billiard Lamp, 392 tris, 1.6 x 1.28 x 0.38
+- decanter_tray: Decanter Tray, 364 tris, 0.4 x 0.24 x 0.4
+- cobweb: Cobweb, 246 tris, 0.7 x 0.389 x 0.701
+- sheet_chair: Sheeted Armchair, 48 tris, 0.84 x 1.025 x 0.805
+- sheet_sofa: Sheeted Sofa, 48 tris, 2 x 0.97 x 0.85
+- vase_broken: Broken Vase, 92 tris, 0.499 x 0.16 x 0.528
+- painting_fallen: Fallen Painting, 50 tris, 1.16 x 0.854 x 0.237
+- key_shield: Shield Key, 44 tris, 0.05 x 0.009 x 0.147; a machine, item
+- crest: Raven Crest, 44 tris, 0.14 x 0.02 x 0.14; a machine, item
+- plaster_debris: Fallen Plaster, 204 tris, 1.681 x 0.273 x 1.309
+- wallpaper_peel: Peeling Wallpaper, 24 tris, 0.5 x 1.2 x 0.35
+- blood_drag: Blood Drag, 56 tris, 0.648 x 0 x 2.425
+- handprints: Bloody Handprints, 32 tris, 0.362 x 0.673 x 0
+- bed_single_metal: Single Bed, Iron, 364 tris, 0.985 x 1.012 x 2.066
+- bed_double_walnut: Double Bed, Walnut, 228 tris, 1.55 x 1.095 x 2.144
+- bed_double_cherry: Double Bed, Cherry, 228 tris, 1.55 x 1.095 x 2.144
+- nightstand_walnut: Nightstand, Walnut, 232 tris, 0.48 x 0.705 x 0.43, open
+- dresser_walnut: Dresser, Walnut, 288 tris, 1.44 x 0.93 x 0.515, open
+- dresser_mirror: Dresser with Mirror, 324 tris, 1.34 x 1.58 x 0.515, open
+- wardrobe_walnut: Wardrobe, Walnut, 216 tris, 1.26 x 2.13 x 0.62, open
+- chest_blanket: Blanket Chest, 132 tris, 0.92 x 0.482 x 0.485, open
+- chest_trunk: Steamer Trunk, 132 tris, 0.92 x 0.482 x 0.485, open
+- pillow: Pillow, 20 tris, 0.6 x 0.12 x 0.38
+- quilt_folded: Folded Quilt, 20 tris, 0.435 x 0.07 x 0.322
+- sofa_leather: Sofa, Leather, 240 tris, 2.22 x 0.803 x 0.85
+- armchair_red: Armchair, Red, 160 tris, 0.96 x 0.803 x 0.85
+- armchair_leather: Armchair, Leather, 164 tris, 0.96 x 1.2 x 0.85
+- rocking_chair: Rocking Chair, 372 tris, 0.53 x 1.041 x 0.917, rock
+- rug_persian: Rug, Persian, 12 tris, 2 x 0.012 x 1.4
+- table_oak: Dining Table, Oak, 68 tris, 1.4 x 0.75 x 0.85
+- table_walnut: Dining Table, Walnut, 68 tris, 1.8 x 0.75 x 0.95
+- chair_spindle_oak: Chair, Spindle Back, 156 tris, 0.44 x 0.965 x 0.42
+- chair_spindle_walnut: Chair, Spindle Back, Walnut, 176 tris, 0.44 x 0.965 x 0.42
+- stool_wood: Stool, 60 tris, 0.35 x 0.463 x 0.35
+- sideboard_walnut: Sideboard, Walnut, 192 tris, 1.54 x 0.98 x 0.515, open
+- hutch_oak: China Hutch, 552 tris, 1.54 x 1.88 x 0.515, open
+- toilet_high_cistern: Toilet, High Cistern, 282 tris, 0.44 x 2.02 x 0.638, open, seat
+- basin_pedestal: Basin on Pedestal, 264 tris, 0.58 x 0.98 x 0.448
+- bathtub_claw: Clawfoot Bath, 268 tris, 0.74 x 0.851 x 1.776
+- bathtub_claw_filthy: Clawfoot Bath, Filthy, 278 tris, 0.74 x 0.851 x 1.776
+- towel_rail: Towel Rail, 84 tris, 0.64 x 0.51 x 0.101
+- towel_white: Towel, White, 40 tris, 0.305 x 0.08 x 0.224
+- bath_mat: Bath Mat, 12 tris, 0.8 x 0.015 x 0.5
+- laundry_basket: Laundry Basket, 366 tris, 0.573 x 0.564 x 0.522
+- clothes_iron: Clothes Iron, 82 tris, 0.256 x 0.13 x 0.292
+- sewing_machine: Sewing Machine, 208 tris, 0.4 x 0.37 x 0.18, spin
+- crate_fruit: Fruit Crate, 204 tris, 0.5 x 0.28 x 0.33
+- wall_shelf_pantry: Wall Shelf, Pantry, 164 tris, 0.8 x 0.437 x 0.201
+- saucepan_copper: Saucepan, Copper, 120 tris, 0.384 x 0.155 x 0.19, open
+- pot_enamel: Casserole Pot, 164 tris, 0.313 x 0.185 x 0.25, open
+- plate_stack: Plates, Stack, 672 tris, 0.24 x 0.08 x 0.24
+- bowl_stack: Bowls, Stack, 368 tris, 0.16 x 0.15 x 0.152
+- jar: Jar, 100 tris, 0.096 x 0.15 x 0.096
+- kitchen_knife: Kitchen Knife, 24 tris, 0.024 x 0.018 x 0.31
+- cleaver: Cleaver, 24 tris, 0.09 x 0.018 x 0.3
+- cutting_board_bread: Cutting Board, Bread, 80 tris, 0.4 x 0.1 x 0.25
+- canisters: Canister Set, 216 tris, 0.408 x 0.245 x 0.141
+- bread: Loaf of Bread, 56 tris, 0.18 x 0.09 x 0.324
+- eggs: Egg Box, 12 tris, 0.3 x 0.06 x 0.11
+- apples: Apples, 120 tris, 0.16 x 0.07 x 0.16
+- wine: Wine Bottle, 116 tris, 0.074 x 0.315 x 0.076
+- wine_empty: Wine Bottle, Empty, 76 tris, 0.074 x 0.3 x 0.07
+- whisky: Whisky Bottle, 116 tris, 0.09 x 0.284 x 0.092
+- milk_bottle: Milk Bottle, 116 tris, 0.07 x 0.231 x 0.072
+- book_bible: Book, Bible, 12 tris, 0.14 x 0.05 x 0.21
+- book_stack: Books, Stack, 48 tris, 0.26 x 0.145 x 0.34
+- book_row: Books, Row, 144 tris, 0.336 x 0.29 x 0.16
+- book_open: Open Book, 58 tris, 0.3 x 0.026 x 0.22, turn
+- letters: Letters, 60 tris, 0.319 x 0.016 x 0.193
+- picture_landscape: Picture, Landscape, 50 tris, 0.67 x 0.52 x 0.025
+- wall_clock_old: Wall Clock, Old, 212 tris, 0.384 x 0.384 x 0.047, tick, hours
+- grandfather_clock: Grandfather Clock, 192 tris, 0.54 x 2.06 x 0.34, swing
+- mirror_round: Mirror, Round, 188 tris, 0.54 x 0.54 x 0.04
+- mirror_long: Mirror, Long, 50 tris, 0.48 x 1.28 x 0.03
+- vase_dead_flowers: Vase of Dead Flowers, 314 tris, 0.182 x 0.46 x 0.185
+- candlestick: Candlestick, 108 tris, 0.12 x 0.32 x 0.12
+- candlestick_iron: Candlestick, Iron, 108 tris, 0.12 x 0.32 x 0.12
+- teddy_bear_old: Teddy Bear, Old, 276 tris, 0.298 x 0.286 x 0.183
+- doll_broken: Doll, Broken, 228 tris, 0.157 x 0.235 x 0.21, look
+- rocking_horse: Rocking Horse, 252 tris, 0.27 x 0.789 x 0.81, rock
+- jack_in_the_box: Jack-in-the-Box, 508 tris, 0.195 x 0.15 x 0.14, spring
+- toy_blocks: Toy Blocks, 72 tris, 0.242 x 0.1 x 0.202
+- globe: Globe, 258 tris, 0.274 x 0.414 x 0.26, spin
+- bucket: Bucket, 56 tris, 0.308 x 0.364 x 0.285
+- mop_bucket: Mop and Bucket, 84 tris, 0.416 x 1.303 x 0.285
+- broom: Broom, 40 tris, 0.33 x 1.367 x 0.375
+- boots: Boots, 72 tris, 0.25 x 0.24 x 0.303
+- coat_rack: Coat Rack, 168 tris, 0.4 x 1.85 x 0.4
+- coat_rack_coats: Coat Rack, Coats, 384 tris, 0.566 x 1.85 x 0.566
+- butcher_block: Butcher Block, 104 tris, 0.7 x 1.09 x 0.6
+- stockpot: Stockpot, 264 tris, 0.473 x 0.411 x 0.41, open
+- skillet_iron: Skillet, Cast Iron, 124 tris, 0.396 x 0.08 x 0.24
+- colander: Colander of Spaghetti, 222 tris, 0.333 x 0.1 x 0.26
+- rolling_pin: Rolling Pin, 76 tris, 0.42 x 0.06 x 0.057
+- meat_grinder: Meat Grinder, 216 tris, 0.14 x 0.29 x 0.365, turn
+- mortar: Mortar and Pestle, 174 tris, 0.146 x 0.167 x 0.14
+- utensil_crock: Utensil Crock, 256 tris, 0.13 x 0.305 x 0.13
+- kitchen_scale: Kitchen Scale, 102 tris, 0.26 x 0.12 x 0.26, weigh
+- mixing_bowls: Mixing Bowls, 370 tris, 0.32 x 0.1 x 0.32
+- carrots: Carrots, 196 tris, 0.233 x 0.039 x 0.166
+- potatoes: Crate of Potatoes, 752 tris, 0.502 x 0.18 x 0.352
+- onions: Sack of Onions, 204 tris, 0.505 x 0.46 x 0.3
+- ham_rotten: Ham, Rotten, 300 tris, 0.342 x 0.302 x 0.204, buzz
+- cheese_round_rotten: Cheese Wheel, Rotten, 244 tris, 0.34 x 0.274 x 0.339, buzz
+- cabbage_rotten: Cabbage, Rotten, 298 tris, 0.231 x 0.36 x 0.218, buzz
+- pie_rotten: Pie, Rotten, 340 tris, 0.26 x 0.214 x 0.26, buzz
+- roast_chicken_rotten: Roast Chicken, Rotten, 412 tris, 0.42 x 0.264 x 0.3, buzz
+- meat_rail_rotten: Meat Rail, Rotten, 348 tris, 1 x 1.14 x 0.634, sway, buzz
+- jar_jam: Jar of Jam, 168 tris, 0.083 x 0.132 x 0.079, open
+- jar_honey: Jar of Honey, 168 tris, 0.083 x 0.132 x 0.079, open
+- sack_flour: Sack of Flour, 24 tris, 0.408 x 0.6 x 0.26
+- sack_flour_open: Sack of Flour, Open, 56 tris, 0.44 x 0.61 x 0.26
+- sack_potatoes: Sack of Potatoes, 56 tris, 0.44 x 0.568 x 0.26
+- spice_rack: Spice Rack, 456 tris, 0.462 x 0.34 x 0.071
+- key_cabinet: Key Cabinet, 310 tris, 0.32 x 0.42 x 0.107, open
+- lantern: Oil Lantern, 400 tris, 0.18 x 0.353 x 0.152, swing
+- candle: Candle, 196 tris, 0.133 x 0.114 x 0.105
+- note: Handwritten Note, 8 tris, 0.147 x 0.008 x 0.21
+- photo: Instant Photo, 12 tris, 0.108 x 0.001 x 0.123
+- diary: Diary, 60 tris, 0.154 x 0.032 x 0.245
+- typewriter: Typewriter, 168 tris, 0.496 x 0.331 x 0.324, type
+- ink_ribbon: Ink Ribbon, 44 tris, 0.06 x 0.012 x 0.06
+- item_chest: Item Chest, 252 tris, 0.8 x 0.426 x 0.466, open
+- herb_pot: Healing Herb, 412 tris, 0.136 x 0.208 x 0.181
+- altar_stone: Stone Altar, 422 tris, 1.34 x 1.067 x 0.66
+- ritual_circle: Ritual Circle, 352 tris, 2 x 0.107 x 2
+- ritual_dagger: Ritual Dagger, 140 tris, 0.318 x 0.032 x 0.165
+- grimoire: Grimoire, 84 tris, 0.274 x 0.087 x 0.322, open
+- ouija_board: Spirit Board, 104 tris, 0.46 x 0.031 x 0.31, spell
+- candle_cluster: Candle Cluster, 882 tris, 0.42 x 0.263 x 0.38
+- candle_pillar: Pillar Candle Stand, 426 tris, 0.396 x 1.525 x 0.35
+- censer: Censer on a Stand, 292 tris, 0.46 x 1.741 x 0.32, swing
+- doll_porcelain: Porcelain Doll, 692 tris, 0.216 x 0.333 x 0.257, look
+- marionette: Marionette, 480 tris, 0.221 x 0.843 x 0.129, sway
+- monkey_cymbals: Cymbal Monkey, 494 tris, 0.161 x 0.242 x 0.197, play
+- dollhouse: Dollhouse, 376 tris, 0.76 x 0.91 x 0.42, open
+- pram: Old Pram, 968 tris, 1.148 x 0.971 x 0.524, rock
+- shackles_wall: Wall Shackles, 1196 tris, 0.903 x 0.66 x 0.078
+- corpse_sheet: Body Under a Sheet, 356 tris, 2.043 x 0.185 x 0.8
+- skull: Human Skull, 124 tris, 0.154 x 0.164 x 0.203
+- bone_pile: Pile of Bones, 1340 tris, 0.812 x 0.282 x 0.823
+- apothecary_cabinet: Apothecary Cabinet, 864 tris, 0.64 x 0.83 x 0.245, open
+- phonograph: Phonograph, 332 tris, 0.555 x 0.758 x 0.566, play
