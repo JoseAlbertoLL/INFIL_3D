@@ -2652,13 +2652,6 @@ MonoBehaviour:
   moveSpeed: 5
   gravity: -9.81
   rotationSpeed: 12
-<<<<<<< HEAD
-  emisorRuido: {fileID: 285261132}
-=======
-  emisorRuido: {fileID: 0}
->>>>>>> 1fa1923116f494cb5c69e71419df28c47650fd77
-  radioCarrera: 4
-  intervaloPasos: 0.55
 --- !u!143 &285261127
 CharacterController:
   m_ObjectHideFlags: 0
