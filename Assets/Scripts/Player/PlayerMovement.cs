@@ -9,8 +9,15 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float gravity = -9.81f;
 
-    [Header("Rotación")]
+    [Header("RotaciÃ³n")]
     public float rotationSpeed = 12f;
+
+    [Header("Sonido")]
+    [SerializeField] private EmisorRuido emisorRuido;
+    [SerializeField] private float radioCarrera = 4f;
+    [SerializeField] private float intervaloPasos = 0.55f;
+
+    private float tiempoProximoRuido;
 
     private CharacterController controller;
     private Animator animator;
@@ -20,15 +27,16 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+
+        if (emisorRuido == null)
+            emisorRuido = GetComponent<EmisorRuido>();
     }
 
     void Update()
     {
-        // Evitar mover un controlador inactivo
         if (!gameObject.activeInHierarchy || !controller.enabled)
             return;
 
-        // Leer las teclas
         Vector2 input = Vector2.zero;
 
         if (Keyboard.current != null)
@@ -50,11 +58,9 @@ public class PlayerMovement : MonoBehaviour
                 input.y = 1f;
         }
 
-        // Dirección del movimiento
         Vector3 movement =
             new Vector3(-input.x, 0f, -input.y).normalized;
 
-        // Rotar hacia la dirección del movimiento
         if (movement != Vector3.zero)
         {
             Quaternion targetRotation =
@@ -67,15 +73,33 @@ public class PlayerMovement : MonoBehaviour
             );
         }
 
-        // Mover al personaje
         controller.Move(
             movement * moveSpeed * Time.deltaTime
         );
 
-        // Actualizar animación
         if (animator != null)
         {
             animator.SetFloat("Speed", input.magnitude);
+        }
+
+        // GeneraciÃ³n periÃ³dica de ruido
+        if (movement != Vector3.zero && controller.isGrounded)
+        {
+            tiempoProximoRuido -= Time.deltaTime;
+
+            if (tiempoProximoRuido <= 0f)
+            {
+                if (emisorRuido != null)
+                {
+                    emisorRuido.GenerarRuido(radioCarrera);
+                }
+
+                tiempoProximoRuido = intervaloPasos;
+            }
+        }
+        else
+        {
+            tiempoProximoRuido = 0f;
         }
 
         // Gravedad
@@ -89,7 +113,3 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 }
-
-
-
-
