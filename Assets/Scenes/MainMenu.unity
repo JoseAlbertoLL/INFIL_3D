@@ -667,7 +667,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: INFIL
+  m_text: 'INFIL
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e1bcae5b7dfd1ba4f8b53e62777a3193, type: 2}
   m_sharedMaterial: {fileID: -6949667958406147868, guid: e1bcae5b7dfd1ba4f8b53e62777a3193, type: 2}
