@@ -1,6 +1,8 @@
 
+
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PinePie.SimpleJoystick;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movimiento")]
     public float moveSpeed = 5f;
     public float gravity = -9.81f;
+
+    [Header("Joystick")]
+    [SerializeField] private JoystickController joystickController;
 
     [Header("Rotación")]
     public float rotationSpeed = 12f;
@@ -39,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 input = Vector2.zero;
 
+        // Movimiento con teclado
         if (Keyboard.current != null)
         {
             if (Keyboard.current.aKey.isPressed ||
@@ -58,9 +64,21 @@ public class PlayerMovement : MonoBehaviour
                 input.y = 1f;
         }
 
+        // Movimiento con joystick
+        if (joystickController != null)
+        {
+            Vector2 joystickInput = joystickController.InputDirection;
+
+            if (joystickInput.sqrMagnitude > input.sqrMagnitude)
+                input = joystickInput;
+        }
+
+        input = Vector2.ClampMagnitude(input, 1f);
+
         Vector3 movement =
             new Vector3(-input.x, 0f, -input.y).normalized;
 
+        // Rotación
         if (movement != Vector3.zero)
         {
             Quaternion targetRotation =
@@ -73,10 +91,12 @@ public class PlayerMovement : MonoBehaviour
             );
         }
 
+        // Movimiento horizontal
         controller.Move(
             movement * moveSpeed * Time.deltaTime
         );
 
+        // Animaciones
         if (animator != null)
         {
             animator.SetFloat("Speed", input.magnitude);
@@ -113,3 +133,4 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 }
+
