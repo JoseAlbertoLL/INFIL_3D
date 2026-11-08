@@ -8,5 +8,11 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MansionLevel");
     }
+
+    public void Salir()
+    {
+        Application.Quit();
+    }
+        
 }
 
