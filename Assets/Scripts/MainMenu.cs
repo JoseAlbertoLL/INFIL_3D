@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     public void Jugar()
     {
-        SceneManager.LoadScene("MansionLevel");
+        SceneManager.LoadScene("Intro");
     }
 
     public void Salir()
