@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class StealthHiding : MonoBehaviour
@@ -15,13 +14,24 @@ public class StealthHiding : MonoBehaviour
     [Header("Skillcheck")]
     [SerializeField] private SkillCheckManager skillCheckManager;
 
+    [Header("Configuración de Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip hideSound;   // Sonido al entrar al escondite
+    [SerializeField] private AudioClip unhideSound; // Sonido al salir del escondite
+
     public bool IsHidden { get; private set; }
 
     public void Hide()
     {
         if (IsHidden) return;
 
-        // Detener la animaci�n
+        // Reproducir sonido de entrada
+        if (audioSource != null && hideSound != null)
+        {
+            audioSource.PlayOneShot(hideSound);
+        }
+
+        // Detener la animación
         if (playerAnimator != null)
         {
             playerAnimator.SetFloat("Speed", 0f);
@@ -52,6 +62,12 @@ public class StealthHiding : MonoBehaviour
     {
         if (!IsHidden) return;
 
+        // Reproducir sonido de salida
+        if (audioSource != null && unhideSound != null)
+        {
+            audioSource.PlayOneShot(unhideSound);
+        }
+
         // Mostrar nuevamente el modelo
         if (visualModel != null)
             visualModel.SetActive(true);
@@ -70,8 +86,3 @@ public class StealthHiding : MonoBehaviour
         IsHidden = false;
     }
 }
-
-
-
-
-
