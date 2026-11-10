@@ -3065,6 +3065,9 @@ MonoBehaviour:
   - {fileID: 285261126}
   playerAnimator: {fileID: 285261131}
   skillCheckManager: {fileID: 1634280268}
+  audioSource: {fileID: 0}
+  hideSound: {fileID: 0}
+  unhideSound: {fileID: 0}
 --- !u!95 &285261131 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 274a93ee49787dd4898e6e7d06b119da, type: 3}
@@ -24642,7 +24645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1512608850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26272,7 +26275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1634280264
 MonoBehaviour:
   m_ObjectHideFlags: 0
