@@ -179,54 +179,54 @@ public class ControlGuardia : MonoBehaviour
     }
 
     private void OnEnable()
-{
-    SistemaRuido.RuidoGenerado += EscucharRuido;
-}
-
-
-//SISTEMA DE RUIDO
-private void OnDisable()
-{
-    SistemaRuido.RuidoGenerado -= EscucharRuido;
-}
-
-private void EscucharRuido(Vector3 posicion, float radio)
-{
-    // No abandonar una persecución activa.
-    if (estado == Estado.Persiguiendo)
-        return;
-
-    // Si ya puede ver al jugador, no necesita investigar el ruido.
-    if (vision != null && vision.PuedeVerJugador())
-        return;
-
-    float distancia = Vector3.Distance(
-        transform.position,
-        posicion
-    );
-
-    if (distancia > radio)
-        return;
-
-    // Comprobar que la posición del ruido esté cerca del NavMesh.
-    if (!NavMesh.SamplePosition(
-        posicion,
-        out NavMeshHit hit,
-        2f,
-        agente.areaMask))
     {
-        return;
+        SistemaRuido.RuidoGenerado += EscucharRuido;
     }
 
-    ultimaPosicionJugador = hit.position;
-    tiempoBuscando = 0f;
-    puntoRegreso = null;
 
-    estado = Estado.Investigando;
+    //SISTEMA DE RUIDO
+    private void OnDisable()
+    {
+        SistemaRuido.RuidoGenerado -= EscucharRuido;
+    }
 
-    agente.isStopped = false;
-    agente.SetDestination(ultimaPosicionJugador);
+    private void EscucharRuido(Vector3 posicion, float radio)
+    {
+        // No abandonar una persecución activa.
+        if (estado == Estado.Persiguiendo)
+            return;
 
-    Debug.Log("Guardia: escuchó un ruido. Investigando.", this);
-}
+        // Si ya puede ver al jugador, no necesita investigar el ruido.
+        if (vision != null && vision.PuedeVerJugador())
+            return;
+
+        float distancia = Vector3.Distance(
+            transform.position,
+            posicion
+        );
+
+        if (distancia > radio)
+            return;
+
+        // Comprobar que la posición del ruido esté cerca del NavMesh.
+        if (!NavMesh.SamplePosition(
+            posicion,
+            out NavMeshHit hit,
+            2f,
+            agente.areaMask))
+        {
+            return;
+        }
+
+        ultimaPosicionJugador = hit.position;
+        tiempoBuscando = 0f;
+        puntoRegreso = null;
+
+        estado = Estado.Investigando;
+
+        agente.isStopped = false;
+        agente.SetDestination(ultimaPosicionJugador);
+
+        Debug.Log("Guardia: escuchó un ruido. Investigando.", this);
+    }
 }

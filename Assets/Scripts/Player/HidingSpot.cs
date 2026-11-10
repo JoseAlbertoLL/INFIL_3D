@@ -20,15 +20,27 @@ public class HidingSpot : MonoBehaviour
         }
     }
 
+    [SerializeField] private SkillCheckManager skillCheckManager;
+
     public void Interact()
     {
         if (playerHiding == null)
             return;
 
         if (playerHiding.IsHidden)
+        {
             playerHiding.Unhide();
+        }
         else
+        {
             playerHiding.Hide();
+            
+            // Activar el minijuego de skillcheck al esconderse
+            if (skillCheckManager != null)
+            {
+                skillCheckManager.StartSkillCheck(playerHiding.transform);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -66,7 +78,7 @@ public class HidingSpot : MonoBehaviour
 
         if (hiding != null && hiding == playerHiding)
         {
-            // Si está escondido, conservar la referencia.
+            // Si estï¿½ escondido, conservar la referencia.
             if (playerHiding.IsHidden)
                 return;
 
@@ -79,6 +91,8 @@ public class HidingSpot : MonoBehaviour
             playerInteraction = null;
         }
     }
+
+    
 }
 
 

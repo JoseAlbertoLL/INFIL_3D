@@ -12,13 +12,16 @@ public class StealthHiding : MonoBehaviour
     [Header("Animador del jugador")]
     [SerializeField] private Animator playerAnimator;
 
+    [Header("Skillcheck")]
+    [SerializeField] private SkillCheckManager skillCheckManager;
+
     public bool IsHidden { get; private set; }
 
     public void Hide()
     {
         if (IsHidden) return;
 
-        // Detener la animación
+        // Detener la animaciï¿½n
         if (playerAnimator != null)
         {
             playerAnimator.SetFloat("Speed", 0f);
@@ -37,6 +40,12 @@ public class StealthHiding : MonoBehaviour
         }
 
         IsHidden = true;
+
+        // Activar el minijuego de skillcheck al completarse la ocultaciÃ³n
+        if (skillCheckManager != null)
+        {
+            skillCheckManager.StartSkillCheck(transform);
+        }
     }
 
     public void Unhide()
