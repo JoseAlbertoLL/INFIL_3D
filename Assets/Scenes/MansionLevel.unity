@@ -392,6 +392,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1512608853}
+  - {fileID: 1634280267}
   - {fileID: 1201464736}
   - {fileID: 999661335}
   - {fileID: 1538208526}
@@ -3065,6 +3067,9 @@ MonoBehaviour:
   - {fileID: 285261126}
   playerAnimator: {fileID: 285261131}
   skillCheckManager: {fileID: 1634280268}
+  audioSource: {fileID: 0}
+  hideSound: {fileID: 0}
+  unhideSound: {fileID: 0}
 --- !u!95 &285261131 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 274a93ee49787dd4898e6e7d06b119da, type: 3}
@@ -24714,19 +24719,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512608849}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.4837627, y: 2.4837627, z: 2.4837627}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1883354028}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 6566629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1033.2454, y: 501.7201}
+  m_SizeDelta: {x: 832, y: 404}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1519829140
 GameObject:
   m_ObjectHideFlags: 0
@@ -26344,20 +26349,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634280263}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.4837627, y: 2.4837627, z: 2.4837627}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1458176018}
   - {fileID: 1642650628}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 6566629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1033.2454, y: 501.7201}
+  m_SizeDelta: {x: 832, y: 404}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1634280268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33948,8 +33953,6 @@ SceneRoots:
   - {fileID: 1330963186}
   - {fileID: 1654079909}
   - {fileID: 1365929255}
-  - {fileID: 1634280267}
-  - {fileID: 1512608853}
   - {fileID: 2028185173}
   - {fileID: 1717697276}
   - {fileID: 574609285}
