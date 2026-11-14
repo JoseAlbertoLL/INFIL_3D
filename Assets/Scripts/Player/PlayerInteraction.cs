@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
@@ -10,12 +9,16 @@ public class PlayerInteraction : MonoBehaviour
         currentHidingSpot = spot;
     }
 
+    // Este método se vincula a tu botón táctil de pantalla en el UI
     public void Interact()
     {
         if (currentHidingSpot != null)
         {
             currentHidingSpot.Interact();
         }
+        else
+        {
+            Debug.Log("No hay ningún escondite cerca.");
+        }
     }
 }
-

@@ -1879,7 +1879,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!43 &190726005
 Mesh:
   m_ObjectHideFlags: 0
@@ -4070,7 +4072,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &356347896
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4914,6 +4918,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0.041, y: 181.772, z: 0.621}
+--- !u!1 &375661753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375661755}
+  - component: {fileID: 375661754}
+  m_Layer: 0
+  m_Name: PlayerInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &375661754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375661753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f35419a2143f047bb414acc908749e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+--- !u!4 &375661755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375661753}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 442.86542, y: -222.38446, z: 11605.703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &404463335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6502,7 +6550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &450542829
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9866,7 +9916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &639859163
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10033,7 +10085,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &648126420
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10390,7 +10444,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &687385921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12198,7 +12254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &762183134
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13185,7 +13243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &799992205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17466,7 +17526,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!1 &980652861
 GameObject:
   m_ObjectHideFlags: 0
@@ -24399,7 +24461,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &1482485222
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26711,7 +26775,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!1001 &1680912473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27041,7 +27107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &1700210466
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28681,7 +28749,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &1760130657
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29131,7 +29201,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &1818583600
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29799,6 +29871,58 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca880b5aae1dce3ce56a7dda39305b68, type: 3}
+--- !u!1 &1875476814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1875476816}
+  - component: {fileID: 1875476815}
+  m_Layer: 0
+  m_Name: SkillCheckManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1875476815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875476814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701fb6321479a514096501a6ea25753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillCheckManager
+  skillCheckPanel: {fileID: 0}
+  indicator: {fileID: 0}
+  targetZone: {fileID: 0}
+  backgroundBar: {fileID: 0}
+  indicatorSpeed: 350
+  noiseRadiusOnFail: 8
+  minWaitBetweenChecks: 2
+  maxWaitBetweenChecks: 4
+--- !u!4 &1875476816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875476814}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 442.86542, y: -222.38446, z: 11605.703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1883354027
 GameObject:
   m_ObjectHideFlags: 0
@@ -33144,7 +33268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &2109817109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33183,7 +33309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &2112651272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33262,6 +33390,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f79b9ab9b5c45536106cca0f1a504f1, type: 3}
+--- !u!1 &2124488165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124488167}
+  - component: {fileID: 2124488166}
+  m_Layer: 0
+  m_Name: HidingSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2124488166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124488165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 890751649841716491, guid: 9e4440a0607d86147852076f408edaf2, type: 3}
+--- !u!4 &2124488167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124488165}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 442.86542, y: -222.38446, z: 11605.703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2129109806
 GameObject:
   m_ObjectHideFlags: 0
@@ -33484,7 +33659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
 --- !u!65 &2129665649
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33956,3 +34133,6 @@ SceneRoots:
   - {fileID: 2028185173}
   - {fileID: 1717697276}
   - {fileID: 574609285}
+  - {fileID: 2124488167}
+  - {fileID: 375661755}
+  - {fileID: 1875476816}
