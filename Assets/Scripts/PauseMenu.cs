@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+        AudioListener.pause = false;
 
         if (panelPausa != null)
             panelPausa.SetActive(false);
@@ -25,6 +27,7 @@ public class PauseMenu : MonoBehaviour
     {
         panelPausa.SetActive(true);
         Time.timeScale = 0f;
+        AudioListener.pause = true;
     }
 
     public void Reanudar()
@@ -35,6 +38,7 @@ public class PauseMenu : MonoBehaviour
             panelOpciones.SetActive(false);
 
         Time.timeScale = 1f;
+        AudioListener.pause = false;
     }
 
     public void AbrirOpciones()
@@ -60,6 +64,9 @@ public class PauseMenu : MonoBehaviour
     public void VolverAlMenuPrincipal()
     {
         Time.timeScale = 1f;
+        AudioListener.pause = false;
+
         SceneManager.LoadScene(nombreMenuPrincipal);
     }
 }
+

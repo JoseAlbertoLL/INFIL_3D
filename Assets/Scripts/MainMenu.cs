@@ -9,6 +9,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Intro");
     }
 
+    public void Opciones()
+    {
+        SceneManager.LoadScene("Opciones");
+    }
+
     public void Salir()
     {
         Application.Quit();

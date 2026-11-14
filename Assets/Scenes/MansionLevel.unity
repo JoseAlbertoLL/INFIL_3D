@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 6566628}
   - component: {fileID: 6566627}
   - component: {fileID: 6566626}
+  - component: {fileID: 6566630}
   m_Layer: 0
   m_Name: Controles
   m_TagString: Untagged
@@ -400,6 +401,8 @@ RectTransform:
   - {fileID: 525562239}
   - {fileID: 1900805669}
   - {fileID: 1309195121}
+  - {fileID: 1049889978}
+  - {fileID: 1080985395}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -407,6 +410,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &6566630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6566625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333347f9fb97527429b38272bead5108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionsNavigation
 --- !u!1001 &35219695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1879,7 +1894,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 1098126608}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!43 &190726005
 Mesh:
   m_ObjectHideFlags: 0
@@ -4070,7 +4090,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &356347896
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4914,6 +4939,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0.041, y: 181.772, z: 0.621}
+--- !u!1 &375661753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375661755}
+  - component: {fileID: 375661754}
+  m_Layer: 0
+  m_Name: PlayerInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &375661754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375661753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f35419a2143f047bb414acc908749e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+--- !u!4 &375661755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375661753}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 442.86542, y: -222.38446, z: 11605.703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &404463335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6502,7 +6571,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &450542829
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7150,9 +7224,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 525562240}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: AbrirOpciones
+      - m_Target: {fileID: 6566630}
+        m_TargetAssemblyTypeName: OptionsNavigation, Assembly-CSharp
+        m_MethodName: OpenOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9866,7 +9940,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &639859163
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10033,7 +10112,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 1098126608}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &648126420
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10390,7 +10474,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &687385921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12198,7 +12287,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 1098126608}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &762183134
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13185,7 +13279,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &799992205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17466,7 +17565,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!1 &980652861
 GameObject:
   m_ObjectHideFlags: 0
@@ -18299,6 +18403,217 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046793419}
   m_CullTransparentMesh: 1
+--- !u!1 &1049889977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1049889978}
+  - component: {fileID: 1049889980}
+  - component: {fileID: 1049889979}
+  m_Layer: 0
+  m_Name: DialoguePanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1049889978
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049889977}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1778027484}
+  m_Father: {fileID: 6566629}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1049889979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049889977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1049889980
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049889977}
+  m_CullTransparentMesh: 1
+--- !u!1 &1080985394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1080985395}
+  - component: {fileID: 1080985397}
+  - component: {fileID: 1080985396}
+  - component: {fileID: 1080985398}
+  m_Layer: 0
+  m_Name: BrightnessOverlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1080985395
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080985394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6566629}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1080985396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080985394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1080985397
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080985394}
+  m_CullTransparentMesh: 1
+--- !u!114 &1080985398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080985394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a68a1472b8251147b8d5de37a8fa23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BrightnessOverlay
+--- !u!1 &1098126607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1098126609}
+  - component: {fileID: 1098126608}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1098126608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098126607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ef527fd3cd1134eae7c8604a8d92a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+  dialoguePanel: {fileID: 1049889977}
+  dialogueText: {fileID: 1778027485}
+  dialogueDuration: 3
+--- !u!4 &1098126609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098126607}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1091.5259, y: 0.00001, z: 3177.6047}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1102983633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24399,7 +24714,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 1098126608}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &1482485222
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26711,7 +27031,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!1001 &1680912473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27041,7 +27366,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &1700210466
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27500,7 +27830,7 @@ AudioSource:
   m_GameObject: {fileID: 1717697274}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1863779515472278509, guid: 3fe4e45514094c94489e41dd42e94042, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 504d901a62396484caa6fbe063feb4da, type: 3}
   m_PlayOnAwake: 1
@@ -28681,7 +29011,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 1098126608}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &1760130657
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28760,6 +29095,143 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf468eb300fd6e08b8963e4dc55d3dde, type: 3}
+--- !u!1 &1778027483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1778027484}
+  - component: {fileID: 1778027486}
+  - component: {fileID: 1778027485}
+  m_Layer: 0
+  m_Name: DialogueText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1778027484
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778027483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1049889978}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 70.19496, y: -371.60205}
+  m_SizeDelta: {x: 340.3899, y: 87.2042}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1778027485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778027483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: e1bcae5b7dfd1ba4f8b53e62777a3193, type: 2}
+  m_sharedMaterial: {fileID: -6949667958406147868, guid: e1bcae5b7dfd1ba4f8b53e62777a3193, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: -1.7362214, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1778027486
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778027483}
+  m_CullTransparentMesh: 1
 --- !u!1 &1805236484
 GameObject:
   m_ObjectHideFlags: 0
@@ -29131,7 +29603,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &1818583600
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29799,6 +30276,58 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca880b5aae1dce3ce56a7dda39305b68, type: 3}
+--- !u!1 &1875476814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1875476816}
+  - component: {fileID: 1875476815}
+  m_Layer: 0
+  m_Name: SkillCheckManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1875476815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875476814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701fb6321479a514096501a6ea25753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillCheckManager
+  skillCheckPanel: {fileID: 0}
+  indicator: {fileID: 0}
+  targetZone: {fileID: 0}
+  backgroundBar: {fileID: 0}
+  indicatorSpeed: 350
+  noiseRadiusOnFail: 8
+  minWaitBetweenChecks: 2
+  maxWaitBetweenChecks: 4
+--- !u!4 &1875476816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875476814}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 442.86542, y: -222.38446, z: 11605.703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1883354027
 GameObject:
   m_ObjectHideFlags: 0
@@ -33144,7 +33673,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 1098126608}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &2109817109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33183,7 +33717,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &2112651272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33262,6 +33801,56 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f79b9ab9b5c45536106cca0f1a504f1, type: 3}
+--- !u!1 &2124488165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124488167}
+  - component: {fileID: 2124488166}
+  m_Layer: 0
+  m_Name: HidingSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2124488166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124488165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 890751649841716491, guid: 9e4440a0607d86147852076f408edaf2, type: 3}
+  dialogueManager: {fileID: 0}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
+--- !u!4 &2124488167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124488165}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 442.86542, y: -222.38446, z: 11605.703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2129109806
 GameObject:
   m_ObjectHideFlags: 0
@@ -33484,7 +34073,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b5d983f9a575843b7acff8f8c2908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HidingSpot
-  skillCheckManager: {fileID: 0}
+  mensajeAlEntrar: "\xA1Oculto!"
+  mensajeAlSalir: "\xA1Fuera!"
+  simpleTextPrefab: {fileID: 0}
+  dialogueManager: {fileID: 1098126608}
+  dialogoAlEntrar: Debo mantenerme quieto...
+  dialogoAlSalir: Es hora de continuar.
 --- !u!65 &2129665649
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33956,3 +34550,7 @@ SceneRoots:
   - {fileID: 2028185173}
   - {fileID: 1717697276}
   - {fileID: 574609285}
+  - {fileID: 2124488167}
+  - {fileID: 375661755}
+  - {fileID: 1875476816}
+  - {fileID: 1098126609}
