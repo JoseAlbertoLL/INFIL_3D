@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,11 +34,8 @@ public class HidingSpot : MonoBehaviour
         {
             playerHiding.Hide();
             
-            // Activar el minijuego de skillcheck al esconderse
-            if (skillCheckManager != null)
-            {
-                skillCheckManager.StartSkillCheck(playerHiding.transform);
-            }
+            // ELIMINADO de aquí para evitar que se duplique, 
+            // ya que StealthHiding ya se encarga de llamarlo dentro de Hide().
         }
     }
 
@@ -78,7 +74,7 @@ public class HidingSpot : MonoBehaviour
 
         if (hiding != null && hiding == playerHiding)
         {
-            // Si est� escondido, conservar la referencia.
+            // Si está escondido, conservar la referencia.
             if (playerHiding.IsHidden)
                 return;
 
@@ -91,8 +87,4 @@ public class HidingSpot : MonoBehaviour
             playerInteraction = null;
         }
     }
-
-    
 }
-
-
