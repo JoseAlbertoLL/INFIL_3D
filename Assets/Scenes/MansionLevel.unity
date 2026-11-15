@@ -20883,6 +20883,55 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1287403049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287403051}
+  - component: {fileID: 1287403050}
+  m_Layer: 0
+  m_Name: InventoryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1287403050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287403049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a91e72de1db8cb4cbfd075b2cb2a45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
+  maxSlots: 3
+  slotIcons:
+  - {fileID: 1421785706}
+  - {fileID: 598441539}
+  - {fileID: 1703581782}
+--- !u!4 &1287403051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287403049}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1106.8688, y: -0, z: 23976.861}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1287692933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30648,6 +30697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
   maxSlots: 3
+  slotIcons: []
 --- !u!43 &1897638760
 Mesh:
   m_ObjectHideFlags: 0
@@ -32215,6 +32265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemInteraction
   itemName: Llave
+  itemIcon: {fileID: 21300000, guid: 053684052b1d84a49a33cb4ed85aad8c, type: 3}
 --- !u!1001 &2053843534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34782,3 +34833,4 @@ SceneRoots:
   - {fileID: 375661755}
   - {fileID: 1875476816}
   - {fileID: 1098126609}
+  - {fileID: 1287403051}
