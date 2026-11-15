@@ -7,6 +7,9 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private GameObject panelGameOver;
     [SerializeField] private GameObject panelPausa;
 
+    [Header("Dialogos")]
+    [SerializeField] private DialogueManager dialogueManager;
+
     [SerializeField] private string nombreMenuPrincipal = "MainMenu";
 
     private void Start()
@@ -17,6 +20,10 @@ public class GameOverManager : MonoBehaviour
 
     public void MostrarGameOver()
     {
+        // Ocultar cualquier diálogo activo
+        if (dialogueManager != null)
+            dialogueManager.HideDialogue();
+
         panelGameOver.SetActive(true);
 
         if (panelPausa != null)
@@ -37,4 +44,5 @@ public class GameOverManager : MonoBehaviour
         SceneManager.LoadScene(nombreMenuPrincipal);
     }
 }
+
 
