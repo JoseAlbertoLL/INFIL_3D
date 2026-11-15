@@ -1,9 +1,11 @@
+
 using UnityEngine;
 
 public class ItemInteraction : MonoBehaviour
 {
     [Header("Datos del Ítem")]
     [SerializeField] private string itemName;
+    [SerializeField] private Sprite itemIcon;
 
     private InteractionManager playerInteraction;
 
@@ -12,6 +14,7 @@ public class ItemInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInteraction = other.GetComponent<InteractionManager>();
+
             if (playerInteraction != null)
             {
                 playerInteraction.SetCurrentItem(this);
@@ -34,16 +37,17 @@ public class ItemInteraction : MonoBehaviour
 
     public void TryInteract()
     {
-        InventoryManager playerInventory = Object.FindFirstObjectByType<InventoryManager>();
-        
+        InventoryManager playerInventory =
+            Object.FindFirstObjectByType<InventoryManager>();
+
         if (playerInventory != null)
         {
-            bool added = playerInventory.AddItem(itemName);
+            bool added = playerInventory.AddItem(itemName, itemIcon);
 
             if (added)
             {
                 Debug.Log($"¡Has recogido: {itemName}!");
-                Destroy(gameObject); // El cubo desaparece del suelo al interactuar
+                Destroy(gameObject);
             }
         }
         else
