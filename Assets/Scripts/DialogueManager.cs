@@ -46,4 +46,16 @@ public class DialogueManager : MonoBehaviour
 
         currentDialogue = null;
     }
+
+    public void HideDialogue()
+    {
+        if (currentDialogue != null)
+        {
+            StopCoroutine(currentDialogue);
+            currentDialogue = null;
+        }
+
+        if (dialoguePanel != null)
+            dialoguePanel.SetActive(false);
+    }
 }

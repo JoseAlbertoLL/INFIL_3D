@@ -31222,6 +31222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameOverManager
   panelGameOver: {fileID: 1309195120}
   panelPausa: {fileID: 1900805668}
+  dialogueManager: {fileID: 1098126608}
   nombreMenuPrincipal: MainMenu
 --- !u!224 &1944205992
 RectTransform:
