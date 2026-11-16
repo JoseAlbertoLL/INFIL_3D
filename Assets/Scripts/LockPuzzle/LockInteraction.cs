@@ -1,16 +1,49 @@
+
 using UnityEngine;
 
 public class LockInteraction : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private InteractionManager playerInteraction;
+
+    [Header("Minijuego")]
+    [SerializeField] private LockPuzzleManager puzzleManager;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            playerInteraction = other.GetComponent<InteractionManager>();
+
+            if (playerInteraction != null)
+            {
+                playerInteraction.SetCurrentLock(this);
+
+                Debug.Log("Cerradura cerca. ¡Pulsa interactuar!");
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            if (playerInteraction != null)
+            {
+                playerInteraction.ClearCurrentLock(this);
+                playerInteraction = null;
+            }
+        }
+    }
+
+    public void TryInteract()
+    {
+        if (puzzleManager != null)
+        {
+            puzzleManager.OpenPuzzle();
+        }
+        else
+        {
+            Debug.LogError("No se asignó LockPuzzleManager.");
+        }
     }
 }

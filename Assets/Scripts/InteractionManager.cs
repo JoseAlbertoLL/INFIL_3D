@@ -1,14 +1,15 @@
+
 using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
-    // Referencia al objeto interactuable que está actualmente cerca del jugador
     private ItemInteraction currentItem;
+    private LockInteraction currentLock;
 
-    // Métodos para que los objetos se registren cuando el jugador se acerque
     public void SetCurrentItem(ItemInteraction item)
     {
         currentItem = item;
+        currentLock = null;
     }
 
     public void ClearCurrentItem(ItemInteraction item)
@@ -19,10 +20,27 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
-    // Este es el método que llamará tu botón táctil de interacción en pantalla
+    public void SetCurrentLock(LockInteraction lockObject)
+    {
+        currentLock = lockObject;
+        currentItem = null;
+    }
+
+    public void ClearCurrentLock(LockInteraction lockObject)
+    {
+        if (currentLock == lockObject)
+        {
+            currentLock = null;
+        }
+    }
+
     public void TriggerInteraction()
     {
-        if (currentItem != null)
+        if (currentLock != null)
+        {
+            currentLock.TryInteract();
+        }
+        else if (currentItem != null)
         {
             currentItem.TryInteract();
         }
