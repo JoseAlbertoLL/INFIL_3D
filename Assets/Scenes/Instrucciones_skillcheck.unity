@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.2116089, y: 3.7942}
+  m_AnchoredPosition: {x: 8, y: 27}
   m_SizeDelta: {x: -2.4233, y: -7.5884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &93976427
@@ -176,8 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Comenzar
-
+  m_text: 'Continuar
 
 
 '
@@ -207,8 +206,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -246,7 +245,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 71.45399, z: 0, w: 12.886045}
+  m_margin: {x: 0, y: 71.45399, z: 0, w: -43.833366}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -294,8 +293,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.986, y: 3.7893}
-  m_SizeDelta: {x: 75.6009, y: 15.1202}
+  m_AnchoredPosition: {x: 8.8661, y: 7.5078}
+  m_SizeDelta: {x: 109.3054, y: 22.5573}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &390415195
 MonoBehaviour:
@@ -535,7 +534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -133.76855, y: -50.09204}
+  m_AnchoredPosition: {x: -304, y: -50.09204}
   m_SizeDelta: {x: 614.0861, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1128829189
@@ -587,8 +586,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -626,7 +625,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -556.599, w: -62.453026}
+  m_margin: {x: 0, y: 0, z: -1061.9031, w: -62.453026}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -796,7 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8827f28e89a7cb4eb4e581bdf9dd442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CinematicController
-  nombreSiguienteNivel: MansionLevel
+  nombreSiguienteNivel: InstruccionesEscondite
 --- !u!4 &1514641756
 Transform:
   m_ObjectHideFlags: 0
@@ -846,8 +845,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.5222, y: 3.7893}
-  m_SizeDelta: {x: 567.0072, y: 15.1202}
+  m_AnchoredPosition: {x: -20, y: 7.5078}
+  m_SizeDelta: {x: 819.7913, y: 22.5573}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1727432823
 MonoBehaviour:
@@ -1013,8 +1012,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.986, y: 3.7893}
-  m_SizeDelta: {x: 7.5601, y: 15.1202}
+  m_AnchoredPosition: {x: 8.8661, y: 7.5078}
+  m_SizeDelta: {x: 10.9305, y: 22.5573}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1822931126
 MonoBehaviour:
@@ -1181,12 +1180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1280}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1277,8 +1276,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -107.58423, y: 54.07663}
-  m_SizeDelta: {x: 311.74194, y: 79.681305}
+  m_AnchoredPosition: {x: -195.17657, y: 80.772064}
+  m_SizeDelta: {x: 619.4999, y: 173.4764}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2017755161
 MonoBehaviour:
@@ -1431,9 +1430,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Al esconderte en tu partida aparecera un SkillCheck, toca la pantalla
-    en el momento exacto para seguir escondido sigilosamente. Si fallas ocasionaras
-    ruido y llamar\xE1s a los guardias."
+  m_text: Al esconderte en tu partida aparecera un SkillCheck, toca la pantalla en
+    el momento exacto para seguir escondido sigilosamente. Si fallas ocasionaras
+    ruido y llamaras a los guardias.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e1bcae5b7dfd1ba4f8b53e62777a3193, type: 2}
   m_sharedMaterial: {fileID: -6949667958406147868, guid: e1bcae5b7dfd1ba4f8b53e62777a3193, type: 2}
@@ -1460,8 +1459,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
