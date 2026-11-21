@@ -9,7 +9,10 @@ public class EmisorRuido : MonoBehaviour
 
     [Header("Visualización")]
     [SerializeField] private bool mostrarRadio = true;
-
+    
+    [Header("Sonido de pasos")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip sonidoPaso;
     private float radioActual;
 
     private void Awake()
@@ -38,6 +41,15 @@ public class EmisorRuido : MonoBehaviour
         radioActual = radio;
 
         Debug.Log("Ruido generado. Radio: " + radio);
+
+        if (audioSource != null && sonidoPaso != null)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = sonidoPaso;
+                audioSource.Play();
+            }
+        }
 
         SistemaRuido.EmitirRuido(
             transform.position,

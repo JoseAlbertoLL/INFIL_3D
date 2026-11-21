@@ -24,6 +24,13 @@ public class HidingSpot : MonoBehaviour
 
     [SerializeField] private string dialogoAlSalir =
         "Es hora de continuar.";
+    
+
+
+    [Header("Sonidos del escondite")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip sonidoEntrar;
+    [SerializeField] private AudioClip sonidoSalir;
 
     private void Update()
     {
@@ -56,6 +63,9 @@ public class HidingSpot : MonoBehaviour
         {
             playerHiding.Unhide();
 
+            if (audioSource != null && sonidoSalir != null)
+                audioSource.PlayOneShot(sonidoSalir);
+
             Debug.Log("Jugador salió del escondite");
 
             if (dialogueManager != null)
@@ -64,6 +74,9 @@ public class HidingSpot : MonoBehaviour
         else
         {
             playerHiding.Hide();
+
+            if (audioSource != null && sonidoEntrar != null)
+                audioSource.PlayOneShot(sonidoEntrar);
 
             Debug.Log("Jugador entró al escondite");
 
