@@ -10191,7 +10191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaedec50742e0da4692f6e40c9b181f9, type: 3}
       propertyPath: m_Name
-      value: tools_tweezer
+      value: "Ganz\xFAa"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19260,7 +19260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991d16f92e449764aa58e592710d59ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemInteraction
-  itemName: Llave
+  itemName: "Ganz\xFAa"
   itemIcon: {fileID: 21300000, guid: 194aef4313493ae428d37e9938c74443, type: 3}
 --- !u!65 &1013271112
 BoxCollider:
@@ -28207,6 +28207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LockInteraction
   puzzleManager: {fileID: 6566631}
+  requiredItem: "Ganz\xFAa"
 --- !u!54 &1612686142
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28321,7 +28322,7 @@ Transform:
   m_GameObject: {fileID: 1612686140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.42, y: 0.748, z: -6.17}
+  m_LocalPosition: {x: -9.14, y: 0.94, z: -23.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

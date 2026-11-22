@@ -10,11 +10,13 @@ public class InventoryManager : MonoBehaviour
     [Header("Iconos de los slots")]
     [SerializeField] private Image[] slotIcons;
 
+    private string[] itemNames;
     private int currentItemsCount = 0;
 
     private void Start()
     {
-        // Ocultar todos los iconos al iniciar
+        itemNames = new string[maxSlots];
+
         foreach (Image icon in slotIcons)
         {
             if (icon != null)
@@ -42,7 +44,6 @@ public class InventoryManager : MonoBehaviour
             return false;
         }
 
-        // Obtener el primer slot disponible
         Image currentSlot = slotIcons[currentItemsCount];
 
         if (currentSlot == null)
@@ -51,9 +52,13 @@ public class InventoryManager : MonoBehaviour
             return false;
         }
 
-        // Colocar el icono
         currentSlot.sprite = itemIcon;
         currentSlot.enabled = true;
+
+        itemNames[currentItemsCount] = itemName;
+
+        Debug.Log("Nombre guardado en inventario: [" +
+                  itemNames[currentItemsCount] + "]");
 
         currentItemsCount++;
 
@@ -64,4 +69,28 @@ public class InventoryManager : MonoBehaviour
 
         return true;
     }
+
+
+    public bool HasItem(string itemName)
+    {
+        Debug.Log("Buscando objeto: [" + itemName + "]");
+        Debug.Log("Cantidad de objetos: " + currentItemsCount);
+
+        for (int i = 0; i < currentItemsCount; i++)
+        {
+            Debug.Log("Slot " + i + " contiene: [" + itemNames[i] + "]");
+
+            if (itemNames[i] == itemName)
+            {
+                Debug.Log("¡Objeto encontrado!");
+                return true;
+            }
+        }
+
+        Debug.Log("Objeto no encontrado en el inventario.");
+        return false;
+    }
+
 }
+
+

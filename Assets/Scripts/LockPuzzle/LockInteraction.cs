@@ -8,6 +8,9 @@ public class LockInteraction : MonoBehaviour
     [Header("Minijuego")]
     [SerializeField] private LockPuzzleManager puzzleManager;
 
+    [Header("Objeto requerido")]
+    [SerializeField] private string requiredItem = "Ganzua";
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -37,6 +40,31 @@ public class LockInteraction : MonoBehaviour
 
     public void TryInteract()
     {
+        Debug.Log("Intentando interactuar con la cerradura...");
+
+        InventoryManager inventory =
+            Object.FindFirstObjectByType<InventoryManager>();
+
+        if (inventory == null)
+        {
+            Debug.LogError("No se encontró InventoryManager.");
+            return;
+        }
+
+        Debug.Log("Objeto requerido: [" + requiredItem + "]");
+
+        bool hasItem = inventory.HasItem(requiredItem);
+
+        Debug.Log("¿Tiene el objeto?: " + hasItem);
+
+        if (!hasItem)
+        {
+            Debug.Log("Necesitas una ganzúa para abrir esta cerradura.");
+            return;
+        }
+
+        Debug.Log("¡Ganzúa encontrada! Intentando abrir el puzzle...");
+
         if (puzzleManager != null)
         {
             puzzleManager.OpenPuzzle();
@@ -47,3 +75,5 @@ public class LockInteraction : MonoBehaviour
         }
     }
 }
+
+
