@@ -1,8 +1,3 @@
-/*
-El guardia debe estar orientado hacia donde mira usando el "transform.forward"
-Tienes que hacer un Layer para obstaculos (puertas, closets, paredes, etc. ) 
-
-*/
 
 using UnityEngine;
 
@@ -19,7 +14,17 @@ public class VisionGuardia : MonoBehaviour
     [Header("Obstáculos")]
     [SerializeField] private LayerMask capasObstaculos;
 
+    [Header("Visual del cono")]
+    [SerializeField] private Material materialCono;
+    [SerializeField, Min(0f)] private float alturaCono = 0.03f;
+
     public Transform Jugador => jugador;
+
+    private GameObject objetoCono;
+    private Mesh mallaCono;
+
+    private float distanciaMalla;
+    private float anguloMalla;
 
     public bool PuedeVerJugador()
     {
@@ -39,8 +44,6 @@ public class VisionGuardia : MonoBehaviour
         if (Vector3.Angle(transform.forward, direccion) > anguloVision / 2f)
             return false;
 
-        // Si un objeto de las capas seleccionadas bloquea el rayo,
-        // el guardia no puede ver al jugador.
         if (Physics.Raycast(
             origen,
             direccion.normalized,
@@ -53,22 +56,112 @@ public class VisionGuardia : MonoBehaviour
         return true;
     }
 
-    private void OnDrawGizmosSelected()
+    private void Awake()
     {
-        Vector3 origen = puntoVision != null
-            ? puntoVision.position
-            : transform.position + Vector3.up * 1.5f;
+        CrearConoVisual();
+    }
 
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(origen, distanciaVision);
+    private void LateUpdate()
+    {
+        if (objetoCono == null)
+            return;
 
-        Vector3 izquierda = Quaternion.Euler(
-            0, -anguloVision / 2f, 0) * transform.forward;
+        // Mantener el cono en el suelo y orientado
+        // hacia donde mira el guardia.
+        objetoCono.transform.position = puntoVision != null
+    ? puntoVision.position
+    : transform.position + Vector3.up * alturaCono;
 
-        Vector3 derecha = Quaternion.Euler(
-            0, anguloVision / 2f, 0) * transform.forward;
+        objetoCono.transform.rotation = transform.rotation;
 
-        Gizmos.DrawRay(origen, izquierda * distanciaVision);
-        Gizmos.DrawRay(origen, derecha * distanciaVision);
+        // Actualizar la malla si se cambian sus valores
+        // de distancia o ángulo.
+        if (distanciaMalla != distanciaVision ||
+            anguloMalla != anguloVision)
+        {
+            ActualizarMalla();
+        }
+    }
+
+    private void CrearConoVisual()
+    {
+        objetoCono = new GameObject("ConoVision");
+
+        objetoCono.transform.SetParent(transform);
+        objetoCono.transform.localPosition = Vector3.zero;
+        objetoCono.transform.localRotation = Quaternion.identity;
+        objetoCono.transform.localScale = Vector3.one;
+
+        MeshFilter filtro = objetoCono.AddComponent<MeshFilter>();
+        MeshRenderer renderizador = objetoCono.AddComponent<MeshRenderer>();
+
+        renderizador.material = materialCono;
+        renderizador.shadowCastingMode =
+            UnityEngine.Rendering.ShadowCastingMode.Off;
+
+        renderizador.receiveShadows = false;
+
+        mallaCono = new Mesh();
+        mallaCono.name = "MallaConoVision";
+
+        filtro.mesh = mallaCono;
+
+        ActualizarMalla();
+    }
+
+    private void ActualizarMalla()
+    {
+        if (mallaCono == null)
+            return;
+
+        mallaCono.Clear();
+
+        int segmentos = 40;
+
+        Vector3[] vertices = new Vector3[segmentos + 2];
+        int[] triangulos = new int[segmentos * 3];
+
+        vertices[0] = Vector3.zero;
+
+        for (int i = 0; i <= segmentos; i++)
+        {
+            float porcentaje = (float)i / segmentos;
+
+            float angulo = Mathf.Lerp(
+                -anguloVision / 2f,
+                anguloVision / 2f,
+                porcentaje
+            );
+
+            float radianes = angulo * Mathf.Deg2Rad;
+
+            vertices[i + 1] = new Vector3(
+                Mathf.Sin(radianes) * distanciaVision,
+                0f,
+                Mathf.Cos(radianes) * distanciaVision
+            );
+        }
+
+        for (int i = 0; i < segmentos; i++)
+        {
+            triangulos[i * 3] = 0;
+            triangulos[i * 3 + 1] = i + 1;
+            triangulos[i * 3 + 2] = i + 2;
+        }
+
+        mallaCono.vertices = vertices;
+        mallaCono.triangles = triangulos;
+
+        mallaCono.RecalculateNormals();
+        mallaCono.RecalculateBounds();
+
+        distanciaMalla = distanciaVision;
+        anguloMalla = anguloVision;
+    }
+
+    private void OnDestroy()
+    {
+        if (mallaCono != null)
+            Destroy(mallaCono);
     }
 }
