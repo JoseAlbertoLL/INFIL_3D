@@ -5,11 +5,13 @@ public class InteractionManager : MonoBehaviour
 {
     private ItemInteraction currentItem;
     private LockInteraction currentLock;
+    private DoorInteraction currentDoor;
 
     public void SetCurrentItem(ItemInteraction item)
     {
         currentItem = item;
         currentLock = null;
+        currentDoor = null;
     }
 
     public void ClearCurrentItem(ItemInteraction item)
@@ -24,6 +26,7 @@ public class InteractionManager : MonoBehaviour
     {
         currentLock = lockObject;
         currentItem = null;
+        currentDoor = null;
     }
 
     public void ClearCurrentLock(LockInteraction lockObject)
@@ -34,11 +37,30 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
+    public void SetCurrentDoor(DoorInteraction door)
+    {
+        currentDoor = door;
+        currentItem = null;
+        currentLock = null;
+    }
+
+    public void ClearCurrentDoor(DoorInteraction door)
+    {
+        if (currentDoor == door)
+        {
+            currentDoor = null;
+        }
+    }
+
     public void TriggerInteraction()
     {
         if (currentLock != null)
         {
             currentLock.TryInteract();
+        }
+        else if (currentDoor != null)
+        {
+            currentDoor.TryInteract();
         }
         else if (currentItem != null)
         {

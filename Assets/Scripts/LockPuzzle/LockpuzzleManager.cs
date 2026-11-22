@@ -1,4 +1,5 @@
 
+
 using UnityEngine;
 using TMPro;
 
@@ -15,13 +16,25 @@ public class LockPuzzleManager : MonoBehaviour
     [SerializeField] private TMP_Text progressText;
     [SerializeField] private TMP_Text attemptsText;
 
+    [Header("Recompensa")]
+    [SerializeField] private string rewardItemName = "LlaveMansion";
+    [SerializeField] private Sprite rewardItemIcon;
+
     private int currentPin = 0;
     private int remainingAttempts = 3;
+
+    private bool rewardClaimed = false;
 
     public bool IsPuzzleActive { get; private set; }
 
     public void OpenPuzzle()
     {
+        if (rewardClaimed)
+        {
+            Debug.Log("Esta cerradura ya fue completada.");
+            return;
+        }
+
         if (pins == null || pins.Length == 0)
         {
             Debug.LogError("No se han asignado los pines del minijuego.");
@@ -73,6 +86,9 @@ public class LockPuzzleManager : MonoBehaviour
             if (currentPin >= pins.Length)
             {
                 Debug.Log("¡Cerradura forzada correctamente!");
+
+                GiveReward();
+
                 ClosePuzzle();
                 return;
             }
@@ -96,6 +112,40 @@ public class LockPuzzleManager : MonoBehaviour
         UpdateUI();
     }
 
+    private void GiveReward()
+    {
+        if (rewardClaimed)
+            return;
+
+        InventoryManager inventory =
+            Object.FindFirstObjectByType<InventoryManager>();
+
+        if (inventory == null)
+        {
+            Debug.LogError("No se encontró InventoryManager.");
+            return;
+        }
+
+        bool added = inventory.AddItem(
+            rewardItemName,
+            rewardItemIcon
+        );
+
+        if (added)
+        {
+            rewardClaimed = true;
+
+            Debug.Log("¡Has obtenido la llave de la mansión!");
+        }
+        else
+        {
+            Debug.LogWarning(
+                "No se pudo obtener la llave. " +
+                "Revisa si el inventario está lleno o falta el icono."
+            );
+        }
+    }
+
     private void UpdateUI()
     {
         progressText.text = "Pines desbloqueados: " +
@@ -113,3 +163,4 @@ public class LockPuzzleManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 }
+
