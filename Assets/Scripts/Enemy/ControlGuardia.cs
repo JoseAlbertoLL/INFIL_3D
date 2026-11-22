@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,6 +15,7 @@ public class ControlGuardia : MonoBehaviour
     [SerializeField] private NavMeshAgent agente;
     [SerializeField] private VisionGuardia vision;
     [SerializeField] private PatrullaGuardia patrulla;
+    [SerializeField] private AnimacionGuardia animacion;
 
     [Header("Investigación")]
     [SerializeField, Min(0f)] private float tiempoInvestigacion = 2f;
@@ -25,6 +25,8 @@ public class ControlGuardia : MonoBehaviour
     private Vector3 ultimaPosicionJugador;
     private float tiempoBuscando;
     private Transform puntoRegreso;
+
+    private bool inspeccionPendiente;
 
     private void Awake()
     {
@@ -36,6 +38,9 @@ public class ControlGuardia : MonoBehaviour
 
         if (patrulla == null)
             patrulla = GetComponent<PatrullaGuardia>();
+
+        if (animacion == null)
+            animacion = GetComponent<AnimacionGuardia>();
     }
 
     private void Start()
@@ -68,6 +73,7 @@ public class ControlGuardia : MonoBehaviour
         if (veJugador)
         {
             ultimaPosicionJugador = vision.Jugador.position;
+            inspeccionPendiente = false;
 
             if (estado != Estado.Persiguiendo)
             {
@@ -79,6 +85,7 @@ public class ControlGuardia : MonoBehaviour
         {
             estado = Estado.Investigando;
             tiempoBuscando = 0f;
+            inspeccionPendiente = true;
 
             Debug.Log("Guardia: perdió de vista al jugador.", this);
         }
@@ -138,6 +145,15 @@ public class ControlGuardia : MonoBehaviour
             return;
         }
 
+        // Reproducir inspección una sola vez al llegar.
+        if (inspeccionPendiente)
+        {
+            if (animacion != null)
+                animacion.ReproducirInspeccion();
+
+            inspeccionPendiente = false;
+        }
+
         tiempoBuscando += Time.deltaTime;
 
         if (tiempoBuscando >= tiempoInvestigacion)
@@ -183,8 +199,7 @@ public class ControlGuardia : MonoBehaviour
         SistemaRuido.RuidoGenerado += EscucharRuido;
     }
 
-
-    //SISTEMA DE RUIDO
+    // SISTEMA DE RUIDO
     private void OnDisable()
     {
         SistemaRuido.RuidoGenerado -= EscucharRuido;
@@ -221,6 +236,7 @@ public class ControlGuardia : MonoBehaviour
         ultimaPosicionJugador = hit.position;
         tiempoBuscando = 0f;
         puntoRegreso = null;
+        inspeccionPendiente = false;
 
         estado = Estado.Investigando;
 

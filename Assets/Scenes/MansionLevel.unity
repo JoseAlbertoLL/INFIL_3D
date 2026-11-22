@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 40546844}
   - component: {fileID: 40546843}
   - component: {fileID: 40546842}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3028,9 +3028,10 @@ MonoBehaviour:
   anguloVision: 90
   capasObstaculos:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   materialCono: {fileID: 2100000, guid: 361c854cbae0c23488ae97b82986e467, type: 2}
   alturaCono: 0.03
+  alturaRaycast: 1
 --- !u!114 &257965950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3046,6 +3047,7 @@ MonoBehaviour:
   agente: {fileID: 257965946}
   vision: {fileID: 257965949}
   patrulla: {fileID: 257965951}
+  animacion: {fileID: 0}
   tiempoInvestigacion: 2
 --- !u!114 &257965951
 MonoBehaviour:
@@ -3077,6 +3079,7 @@ MonoBehaviour:
   agente: {fileID: 257965946}
   animator: {fileID: 1644338282}
   velocidadMinima: 0.1
+  triggerInspeccion: Inspeccion
 --- !u!54 &257965953
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3830,6 +3833,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 285261129}
+--- !u!1 &331648688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 331648689}
+  m_Layer: 0
+  m_Name: Punto3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &331648689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331648688}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.27, y: 0, z: -0.54}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &333277258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4021,7 +4055,7 @@ GameObject:
   - component: {fileID: 340295685}
   - component: {fileID: 340295684}
   - component: {fileID: 340295683}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4624,7 +4658,7 @@ GameObject:
   - component: {fileID: 371257367}
   - component: {fileID: 371257366}
   - component: {fileID: 371257365}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4978,7 +5012,7 @@ GameObject:
   - component: {fileID: 373286781}
   - component: {fileID: 373286780}
   - component: {fileID: 373286779}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5626,7 +5660,7 @@ GameObject:
   - component: {fileID: 410058558}
   - component: {fileID: 410058557}
   - component: {fileID: 410058556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6112,7 +6146,7 @@ GameObject:
   - component: {fileID: 433081240}
   - component: {fileID: 433081239}
   - component: {fileID: 433081238}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6598,7 +6632,7 @@ GameObject:
   - component: {fileID: 448964286}
   - component: {fileID: 448964285}
   - component: {fileID: 448964284}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6938,6 +6972,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0.621, y: 91.582, z: -0.043}
+--- !u!1 &450378720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450378721}
+  m_Layer: 0
+  m_Name: Punto5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450378721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450378720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.1, y: 0, z: -19.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450542825 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 053209b5dbcdcfe77740dce97dd287cb, type: 3}
@@ -7207,7 +7272,7 @@ GameObject:
   - component: {fileID: 471198758}
   - component: {fileID: 471198757}
   - component: {fileID: 471198756}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7807,7 +7872,7 @@ GameObject:
   - component: {fileID: 495227970}
   - component: {fileID: 495227969}
   - component: {fileID: 495227968}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8806,7 +8871,7 @@ GameObject:
   - component: {fileID: 559258251}
   - component: {fileID: 559258250}
   - component: {fileID: 559258249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9752,6 +9817,7 @@ MonoBehaviour:
   agente: {fileID: 591278382}
   animator: {fileID: 2056733900}
   velocidadMinima: 0.1
+  triggerInspeccion: Inspeccion
 --- !u!114 &591278379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9770,9 +9836,10 @@ MonoBehaviour:
   anguloVision: 90
   capasObstaculos:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   materialCono: {fileID: 2100000, guid: 361c854cbae0c23488ae97b82986e467, type: 2}
   alturaCono: 0.03
+  alturaRaycast: 1
 --- !u!114 &591278380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9788,6 +9855,7 @@ MonoBehaviour:
   agente: {fileID: 591278382}
   vision: {fileID: 591278379}
   patrulla: {fileID: 591278381}
+  animacion: {fileID: 0}
   tiempoInvestigacion: 2
 --- !u!114 &591278381
 MonoBehaviour:
@@ -9802,8 +9870,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatrullaGuardia
   puntos:
-  - {fileID: 1519829141}
-  - {fileID: 1131440565}
+  - {fileID: 450378721}
+  - {fileID: 1408476524}
 --- !u!195 &591278382
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10573,7 +10641,7 @@ GameObject:
   - component: {fileID: 628347779}
   - component: {fileID: 628347778}
   - component: {fileID: 628347777}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12267,7 +12335,7 @@ GameObject:
   - component: {fileID: 725555361}
   - component: {fileID: 725555360}
   - component: {fileID: 725555359}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12991,7 +13059,7 @@ GameObject:
   - component: {fileID: 733720812}
   - component: {fileID: 733720811}
   - component: {fileID: 733720810}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13449,7 +13517,7 @@ GameObject:
   - component: {fileID: 765149414}
   - component: {fileID: 765149413}
   - component: {fileID: 765149412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14615,7 +14683,7 @@ GameObject:
   - component: {fileID: 814343745}
   - component: {fileID: 814343744}
   - component: {fileID: 814343743}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16557,7 +16625,7 @@ GameObject:
   - component: {fileID: 882391164}
   - component: {fileID: 882391163}
   - component: {fileID: 882391162}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17180,7 +17248,7 @@ GameObject:
   - component: {fileID: 921786127}
   - component: {fileID: 921786126}
   - component: {fileID: 921786125}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18056,7 +18124,7 @@ GameObject:
   - component: {fileID: 949598388}
   - component: {fileID: 949598387}
   - component: {fileID: 949598386}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18488,7 +18556,7 @@ GameObject:
   - component: {fileID: 958155643}
   - component: {fileID: 958155642}
   - component: {fileID: 958155641}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19750,6 +19818,7 @@ MonoBehaviour:
   agente: {fileID: 1001891372}
   animator: {fileID: 1083791054}
   velocidadMinima: 0.1
+  triggerInspeccion: Inspeccion
 --- !u!114 &1001891369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19768,9 +19837,10 @@ MonoBehaviour:
   anguloVision: 90
   capasObstaculos:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   materialCono: {fileID: 2100000, guid: 361c854cbae0c23488ae97b82986e467, type: 2}
   alturaCono: 0.03
+  alturaRaycast: 1
 --- !u!114 &1001891370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19786,6 +19856,7 @@ MonoBehaviour:
   agente: {fileID: 1001891372}
   vision: {fileID: 1001891369}
   patrulla: {fileID: 1001891371}
+  animacion: {fileID: 0}
   tiempoInvestigacion: 2
 --- !u!114 &1001891371
 MonoBehaviour:
@@ -19800,8 +19871,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatrullaGuardia
   puntos:
-  - {fileID: 1519829141}
-  - {fileID: 1131440565}
+  - {fileID: 331648689}
+  - {fileID: 1039380385}
 --- !u!195 &1001891372
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -20350,6 +20421,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b11c6d8268cb05441ad4f29ab168723b, type: 3}
+--- !u!1 &1039380384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1039380385}
+  m_Layer: 0
+  m_Name: Punto4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1039380385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039380384}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.5, y: 0, z: -0.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1046793419
 GameObject:
   m_ObjectHideFlags: 0
@@ -21064,7 +21166,7 @@ GameObject:
   - component: {fileID: 1122617430}
   - component: {fileID: 1122617429}
   - component: {fileID: 1122617428}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21753,7 +21855,7 @@ GameObject:
   - component: {fileID: 1185925402}
   - component: {fileID: 1185925401}
   - component: {fileID: 1185925400}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25403,7 +25505,7 @@ GameObject:
   - component: {fileID: 1381775057}
   - component: {fileID: 1381775056}
   - component: {fileID: 1381775055}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25742,6 +25844,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -0.042, y: 1.615, z: -0.621}
+--- !u!1 &1408476523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1408476524}
+  m_Layer: 0
+  m_Name: Punto6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1408476524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408476523}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.04, y: 0, z: -19.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1410044980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26499,7 +26632,7 @@ GameObject:
   - component: {fileID: 1447410899}
   - component: {fileID: 1447410898}
   - component: {fileID: 1447410897}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28421,7 +28554,7 @@ GameObject:
   - component: {fileID: 1562133263}
   - component: {fileID: 1562133262}
   - component: {fileID: 1562133261}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30582,7 +30715,7 @@ GameObject:
   - component: {fileID: 1712669884}
   - component: {fileID: 1712669883}
   - component: {fileID: 1712669882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31065,7 +31198,7 @@ GameObject:
   - component: {fileID: 1719395171}
   - component: {fileID: 1719395170}
   - component: {fileID: 1719395169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31418,7 +31551,7 @@ GameObject:
   - component: {fileID: 1748242349}
   - component: {fileID: 1748242348}
   - component: {fileID: 1748242347}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32367,7 +32500,7 @@ GameObject:
   - component: {fileID: 1805236487}
   - component: {fileID: 1805236486}
   - component: {fileID: 1805236485}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34888,7 +35021,7 @@ GameObject:
   - component: {fileID: 1965959662}
   - component: {fileID: 1965959661}
   - component: {fileID: 1965959660}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35887,7 +36020,7 @@ GameObject:
   - component: {fileID: 2069558744}
   - component: {fileID: 2069558743}
   - component: {fileID: 2069558742}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36449,7 +36582,7 @@ GameObject:
   - component: {fileID: 2079841752}
   - component: {fileID: 2079841751}
   - component: {fileID: 2079841750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36803,7 +36936,7 @@ GameObject:
   - component: {fileID: 2080426484}
   - component: {fileID: 2080426483}
   - component: {fileID: 2080426482}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PolyShape (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38348,6 +38481,10 @@ SceneRoots:
   - {fileID: 591278384}
   - {fileID: 1519829141}
   - {fileID: 1131440565}
+  - {fileID: 331648689}
+  - {fileID: 1039380385}
+  - {fileID: 450378721}
+  - {fileID: 1408476524}
   - {fileID: 928030874}
   - {fileID: 1944205992}
   - {fileID: 6566629}

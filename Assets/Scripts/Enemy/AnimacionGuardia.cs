@@ -9,6 +9,7 @@ public class AnimacionGuardia : MonoBehaviour
 
     [Header("Animaciones")]
     [SerializeField] private float velocidadMinima = 0.1f;
+    [SerializeField] private string triggerInspeccion = "Inspeccion";
 
     private void Awake()
     {
@@ -33,5 +34,13 @@ public class AnimacionGuardia : MonoBehaviour
             velocidad = 0f;
 
         animator.SetFloat("Velocidad", velocidad);
+    }
+
+    public void ReproducirInspeccion()
+    {
+        if (animator == null)
+            return;
+
+        animator.SetTrigger(triggerInspeccion);
     }
 }

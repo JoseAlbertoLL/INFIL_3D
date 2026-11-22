@@ -17,14 +17,12 @@ public class VisionGuardia : MonoBehaviour
     [Header("Visual del cono")]
     [SerializeField] private Material materialCono;
     [SerializeField, Min(0f)] private float alturaCono = 0.03f;
+    [SerializeField, Min(0f)] private float alturaRaycast = 1f;
 
     public Transform Jugador => jugador;
 
     private GameObject objetoCono;
     private Mesh mallaCono;
-
-    private float distanciaMalla;
-    private float anguloMalla;
 
     public bool PuedeVerJugador()
     {
@@ -66,21 +64,17 @@ public class VisionGuardia : MonoBehaviour
         if (objetoCono == null)
             return;
 
-        // Mantener el cono en el suelo y orientado
+        // Mantener el cono en su posición y orientarlo
         // hacia donde mira el guardia.
         objetoCono.transform.position = puntoVision != null
-    ? puntoVision.position
-    : transform.position + Vector3.up * alturaCono;
+            ? puntoVision.position
+            : transform.position + Vector3.up * alturaCono;
 
         objetoCono.transform.rotation = transform.rotation;
 
-        // Actualizar la malla si se cambian sus valores
-        // de distancia o ángulo.
-        if (distanciaMalla != distanciaVision ||
-            anguloMalla != anguloVision)
-        {
-            ActualizarMalla();
-        }
+        // Actualizar el cono para comprobar los obstáculos
+        // aunque el guardia se encuentre en movimiento.
+        ActualizarMalla();
     }
 
     private void CrearConoVisual()
@@ -123,6 +117,10 @@ public class VisionGuardia : MonoBehaviour
 
         vertices[0] = Vector3.zero;
 
+        // Altura desde donde se comprueban las paredes.
+        Vector3 origenRaycast =
+            objetoCono.transform.position + Vector3.up * alturaRaycast;
+
         for (int i = 0; i <= segmentos; i++)
         {
             float porcentaje = (float)i / segmentos;
@@ -135,11 +133,33 @@ public class VisionGuardia : MonoBehaviour
 
             float radianes = angulo * Mathf.Deg2Rad;
 
-            vertices[i + 1] = new Vector3(
-                Mathf.Sin(radianes) * distanciaVision,
+            Vector3 direccionLocal = new Vector3(
+                Mathf.Sin(radianes),
                 0f,
-                Mathf.Cos(radianes) * distanciaVision
+                Mathf.Cos(radianes)
             );
+
+            // Convertir la dirección local a dirección mundial.
+            Vector3 direccionMundo =
+                objetoCono.transform.TransformDirection(direccionLocal);
+
+            // Distancia máxima del cono.
+            float distancia = distanciaVision;
+
+            // Si encuentra una pared, reducir la distancia.
+            if (Physics.Raycast(
+                origenRaycast,
+                direccionMundo,
+                out RaycastHit impacto,
+                distanciaVision,
+                capasObstaculos,
+                QueryTriggerInteraction.Ignore))
+            {
+                distancia = Mathf.Max(0f, impacto.distance - 0.05f);
+            }
+
+            // Crear el vértice hasta donde se permite ver.
+            vertices[i + 1] = direccionLocal * distancia;
         }
 
         for (int i = 0; i < segmentos; i++)
@@ -154,9 +174,6 @@ public class VisionGuardia : MonoBehaviour
 
         mallaCono.RecalculateNormals();
         mallaCono.RecalculateBounds();
-
-        distanciaMalla = distanciaVision;
-        anguloMalla = anguloVision;
     }
 
     private void OnDestroy()
@@ -165,3 +182,4 @@ public class VisionGuardia : MonoBehaviour
             Destroy(mallaCono);
     }
 }
+
