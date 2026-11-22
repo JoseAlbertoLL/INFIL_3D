@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class VisionGuardia : MonoBehaviour
@@ -24,10 +23,20 @@ public class VisionGuardia : MonoBehaviour
     private GameObject objetoCono;
     private Mesh mallaCono;
 
+    // Referencia al sistema de escondites del jugador.
+    private StealthHiding ocultamientoJugador;
+
     public bool PuedeVerJugador()
     {
         if (jugador == null)
             return false;
+
+        // No detectar al jugador mientras esté escondido.
+        if (ocultamientoJugador != null &&
+            ocultamientoJugador.IsHidden)
+        {
+            return false;
+        }
 
         Vector3 origen = puntoVision != null
             ? puntoVision.position
@@ -42,6 +51,8 @@ public class VisionGuardia : MonoBehaviour
         if (Vector3.Angle(transform.forward, direccion) > anguloVision / 2f)
             return false;
 
+        // Comprobar si existe una pared u obstáculo
+        // entre el guardia y el jugador.
         if (Physics.Raycast(
             origen,
             direccion.normalized,
@@ -56,6 +67,20 @@ public class VisionGuardia : MonoBehaviour
 
     private void Awake()
     {
+        // Buscar el componente StealthHiding del jugador.
+        if (jugador != null)
+        {
+            ocultamientoJugador = jugador.GetComponent<StealthHiding>();
+
+            if (ocultamientoJugador == null)
+                ocultamientoJugador =
+                    jugador.GetComponentInParent<StealthHiding>();
+
+            if (ocultamientoJugador == null)
+                ocultamientoJugador =
+                    jugador.GetComponentInChildren<StealthHiding>(true);
+        }
+
         CrearConoVisual();
     }
 
@@ -72,8 +97,7 @@ public class VisionGuardia : MonoBehaviour
 
         objetoCono.transform.rotation = transform.rotation;
 
-        // Actualizar el cono para comprobar los obstáculos
-        // aunque el guardia se encuentre en movimiento.
+        // Actualizar el cono para comprobar los obstáculos.
         ActualizarMalla();
     }
 
@@ -143,7 +167,6 @@ public class VisionGuardia : MonoBehaviour
             Vector3 direccionMundo =
                 objetoCono.transform.TransformDirection(direccionLocal);
 
-            // Distancia máxima del cono.
             float distancia = distanciaVision;
 
             // Si encuentra una pared, reducir la distancia.

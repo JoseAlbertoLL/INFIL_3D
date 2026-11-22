@@ -3024,7 +3024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VisionGuardia
   jugador: {fileID: 285261129}
   puntoVision: {fileID: 1224264064}
-  distanciaVision: 4
+  distanciaVision: 8
   anguloVision: 90
   capasObstaculos:
     serializedVersion: 2
@@ -9832,7 +9832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VisionGuardia
   jugador: {fileID: 285261129}
   puntoVision: {fileID: 2076574859}
-  distanciaVision: 4
+  distanciaVision: 8
   anguloVision: 90
   capasObstaculos:
     serializedVersion: 2
@@ -19833,7 +19833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VisionGuardia
   jugador: {fileID: 285261129}
   puntoVision: {fileID: 823304353}
-  distanciaVision: 4
+  distanciaVision: 8
   anguloVision: 90
   capasObstaculos:
     serializedVersion: 2
