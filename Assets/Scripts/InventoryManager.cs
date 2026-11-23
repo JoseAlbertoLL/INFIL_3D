@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     [Header("Configuración de Inventario")]
-    [SerializeField] private int maxSlots = 3;
+    [SerializeField] private int maxSlots = 4;
 
     [Header("Iconos de los slots")]
     [SerializeField] private Image[] slotIcons;
