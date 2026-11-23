@@ -696,6 +696,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorInteraction
   requiredItem: LlaveMansion
+  requiresDiamond: 0
+  requiredDiamond: Diamante
+  dialogueManager: {fileID: 1098126608}
+  missingKeyMessage: Necesito la llave para abrir esta puerta.
+  missingDiamondMessage: No puedo irme sin recuperar el diamante.
   doorPivot: {fileID: 295133369}
   openAngle: 90
   openSpeed: 2
@@ -22044,6 +22049,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorInteraction
   requiredItem: Llave
+  requiresDiamond: 1
+  requiredDiamond: Diamante
+  dialogueManager: {fileID: 1098126608}
+  missingKeyMessage: Necesito la llave para abrir esta puerta.
+  missingDiamondMessage: No puedo irme sin recuperar el diamante.
   doorPivot: {fileID: 297540804}
   openAngle: 90
   openSpeed: 2

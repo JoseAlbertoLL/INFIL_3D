@@ -3,8 +3,22 @@ using UnityEngine;
 
 public class DoorInteraction : MonoBehaviour
 {
-    [Header("Llave requerida")]
-    [SerializeField] private string requiredItem = "LlaveMansion";
+    [Header("Objetos requeridos")]
+    [SerializeField] private string requiredItem = "Llave";
+
+    [SerializeField] private bool requiresDiamond = false;
+    [SerializeField] private string requiredDiamond = "Diamante";
+
+    [Header("Dialogo")]
+    [SerializeField] private DialogueManager dialogueManager;
+
+    [SerializeField]
+    private string missingKeyMessage =
+        "Necesito otra llave para abrir esta puerta.";
+
+    [SerializeField]
+    private string missingDiamondMessage =
+        "No puedo irme sin recuperar el diamante.";
 
     [Header("Movimiento de la puerta")]
     [SerializeField] private Transform doorPivot;
@@ -25,9 +39,7 @@ public class DoorInteraction : MonoBehaviour
     private void Start()
     {
         if (doorPivot == null)
-        {
             doorPivot = transform;
-        }
 
         closedRotation = doorPivot.localRotation;
 
@@ -66,11 +78,7 @@ public class DoorInteraction : MonoBehaviour
                 other.GetComponent<InteractionManager>();
 
             if (playerInteraction != null && !isOpen)
-            {
                 playerInteraction.SetCurrentDoor(this);
-
-                Debug.Log("Puerta cerca. ¡Pulsa interactuar!");
-            }
         }
     }
 
@@ -102,21 +110,35 @@ public class DoorInteraction : MonoBehaviour
 
         if (!inventory.HasItem(requiredItem))
         {
-            Debug.Log("Necesitas la llave de la mansión.");
+            MostrarMensaje(missingKeyMessage);
             return;
         }
 
-        Debug.Log("¡Llave encontrada! Abriendo puerta...");
-
-        // Desactivar colisión inmediatamente
-        if (doorCollider != null)
+        if (requiresDiamond &&
+            !inventory.HasItem(requiredDiamond))
         {
-            doorCollider.enabled = false;
+            MostrarMensaje(missingDiamondMessage);
+            return;
         }
+
+        Debug.Log("¡Requisitos cumplidos! Abriendo puerta...");
+
+        if (doorCollider != null)
+            doorCollider.enabled = false;
 
         isOpening = true;
     }
+
+    private void MostrarMensaje(string mensaje)
+    {
+        if (dialogueManager != null)
+            dialogueManager.ShowDialogue(mensaje);
+        else
+            Debug.LogWarning(mensaje);
+    }
 }
+
+
 
 
 
